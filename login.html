@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In — STACKLY Haute Optique Portal</title>
+  <meta name="description" content="Sign in to your STACKLY client or administrative portal. Manage eyewear orders, wishlists, and optical consultations." />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div id="page-loader" class="page-loader">
+    <div class="loader-spinner"></div>
+    <span class="loader-text">STACKLY · PORTAL</span>
+  </div>
+
+  <div class="auth-wrapper">
+    <!-- Visual Left Column -->
+    <div class="auth-visual">
+      <img src="./images/banners/auth-banner.webp" alt="STACKLY Atelier Aesthetic" class="auth-visual-bg" />
+      <div class="auth-visual-header">
+        <a href="index.html" class="nav-logo">
+          <img src="./images/logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" style="filter: brightness(0) invert(1);" />
+        </a>
+      </div>
+      <div class="auth-visual-body">
+        <span class="auth-quote-badge">Atelier Portal Access</span>
+        <h2>Sculptural eyewear for the discerning gaze.</h2>
+        <p>Access your curated wishlists, bespoke prescription orders, and personalized styling consultations.</p>
+      </div>
+      <div class="auth-visual-footer">
+        <p style="font-size: 0.8rem; color: var(--color-muted-light);">&copy; 2026 STACKLY Haute Optique. All rights reserved.</p>
+      </div>
+    </div>
+
+    <!-- Form Right Column -->
+    <div class="auth-content">
+      <div class="auth-top-nav">
+        <!-- Back to Home Button -->
+        <a href="index.html" class="back-home-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back to Home
+        </a>
+      </div>
+
+      <div class="auth-card">
+        <div class="auth-header">
+          <!-- STACKLY Logo -->
+          <a href="index.html" class="nav-logo">
+            <img src="./images/logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" />
+          </a>
+          <h1>Welcome to STACKLY</h1>
+          <p>Please enter your credentials to access your account.</p>
+        </div>
+
+        <!-- Clearly labelled Demo Authentication System Notice -->
+        <div class="demo-badge-notice">
+          <strong>Instant Sign In:</strong> Any email and password can be used to log in. Select your role or enter an admin email to access the Admin Dashboard, or sign in as User to access the Client Portal.
+        </div>
+
+        <!-- Form fields in the EXACT required order:
+             1. Role dropdown (User, Admin)
+             2. Email
+             3. Password
+             4. Forgot Password link
+             5. Login button
+             6. Register button
+        -->
+        <form id="login-form" class="auth-form">
+          <!-- 1. Role dropdown -->
+          <div class="form-field">
+            <label for="login-role">Select Access Role *</label>
+            <div class="input-icon-wrapper">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <select id="login-role" class="auth-select" required>
+                <option value="User" selected>User (Client Portal)</option>
+                <option value="Admin">Admin (Executive Portal)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- 2. Email -->
+          <div class="form-field">
+            <label for="login-email">Email Address *</label>
+            <div class="input-icon-wrapper">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <input type="email" id="login-email" class="auth-input" placeholder="user@stackly.com" value="user@stackly.com" required />
+            </div>
+          </div>
+
+          <!-- 3. Password -->
+          <div class="form-field">
+            <label for="login-password">Password *</label>
+            <div class="input-icon-wrapper">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <input type="password" id="login-password" class="auth-input" placeholder="••••••••" value="password123" required />
+            </div>
+          </div>
+
+          <!-- 4. Forgot Password link -->
+          <div class="auth-extra-links">
+            <a href="forgot-password.html" class="forgot-pass-link">Forgot Password?</a>
+          </div>
+
+          <!-- 5. Login button -->
+          <button type="submit" class="btn btn-primary auth-submit-btn">
+            Sign In to Portal
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+
+          <!-- 6. Register button -->
+          <a href="register.html" class="btn btn-outline auth-secondary-btn">
+            Create an Account (Register)
+          </a>
+        </form>
+
+        <div style="margin-top: 1.5rem; text-align: center; font-size: 0.82rem; color: var(--color-muted);">
+          <span>Tip: Switch role to <strong>Admin</strong> or enter any email containing <code>admin</code> to enter the Executive Suite.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

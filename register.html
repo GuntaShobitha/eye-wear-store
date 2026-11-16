@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create an Account — STACKLY Haute Optique</title>
+  <meta name="description" content="Register for a STACKLY portal account to save curated wishlists, track prescription orders, and book private styling consultations." />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div id="page-loader" class="page-loader">
+    <div class="loader-spinner"></div>
+    <span class="loader-text">STACKLY · REGISTER</span>
+  </div>
+
+  <div class="auth-wrapper">
+    <!-- Visual Left Column -->
+    <div class="auth-visual">
+      <img src="./images/banners/auth-banner.webp" alt="STACKLY Atelier Aesthetic" class="auth-visual-bg" />
+      <div class="auth-visual-header">
+        <a href="index.html" class="nav-logo">
+          <img src="./images/logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" style="filter: brightness(0) invert(1);" />
+        </a>
+      </div>
+      <div class="auth-visual-body">
+        <span class="auth-quote-badge">New Client Membership</span>
+        <h2>Join the STACKLY Connoisseurs Circle.</h2>
+        <p>Unlock priority allocations of numbered beta-titanium releases, bespoke lens fitting profiles, and worldwide express concierge support.</p>
+      </div>
+      <div class="auth-visual-footer">
+        <p style="font-size: 0.8rem; color: var(--color-muted-light);">&copy; 2026 STACKLY Haute Optique. All rights reserved.</p>
+      </div>
+    </div>
+
+    <!-- Form Right Column -->
+    <div class="auth-content">
+      <div class="auth-top-nav">
+        <!-- Back to Home Button -->
+        <a href="index.html" class="back-home-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back to Home
+        </a>
+      </div>
+
+      <div class="auth-card">
+        <div class="auth-header">
+          <!-- STACKLY Logo -->
+          <a href="index.html" class="nav-logo">
+            <img src="./images/logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" />
+          </a>
+          <h1>Create an Account</h1>
+          <p>Register your profile for personalized optical access.</p>
+        </div>
+
+        <div class="demo-badge-notice">
+          <strong>Client Registration:</strong> Fill out the required fields below. Once registered, you will be redirected to the sign in page to access your dashboard.
+        </div>
+
+        <form id="register-form" class="auth-form">
+          <!-- Full Name -->
+          <div class="form-field">
+            <label for="register-name">Full Name *</label>
+            <div class="input-icon-wrapper">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <input type="text" id="register-name" class="auth-input" placeholder="e.g. Julian Vance" required />
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="form-field">
+            <label for="register-email">Email Address *</label>
+            <div class="input-icon-wrapper">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <input type="email" id="register-email" class="auth-input" placeholder="e.g. julian@example.com" required />
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="form-field">
+            <label for="register-password">Password (min. 6 characters) *</label>
+            <div class="input-icon-wrapper">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <input type="password" id="register-password" class="auth-input" placeholder="••••••••" required />
+            </div>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="form-field">
+            <label for="register-confirm-password">Confirm Password *</label>
+            <div class="input-icon-wrapper">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <input type="password" id="register-confirm-password" class="auth-input" placeholder="••••••••" required />
+            </div>
+          </div>
+
+          <!-- Role Selection: User or Admin -->
+          <div class="form-field">
+            <label for="register-role">Account Privilege Role *</label>
+            <div class="input-icon-wrapper">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+              <select id="register-role" class="auth-select" required>
+                <option value="User" selected>User (Client Member)</option>
+                <option value="Admin">Admin (Executive Store Manager)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Register button -->
+          <button type="submit" class="btn btn-primary auth-submit-btn">
+            Create Account & Enter Portal
+          </button>
+        </form>
+
+        <!-- Already have an account? Login link -->
+        <div class="auth-switch-prompt">
+          Already have an account? <a href="login.html">Sign In</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

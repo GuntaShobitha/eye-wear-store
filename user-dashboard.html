@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Portal — STACKLY Haute Optique</title>
+  <meta name="description" content="Manage your STACKLY client orders, saved wishlist silhouettes, bespoke optical profile, and concierge appointments." />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div id="page-loader" class="page-loader">
+    <div class="loader-spinner"></div>
+    <span class="loader-text">STACKLY · CLIENT PORTAL</span>
+  </div>
+
+  <div class="dashboard-layout">
+    <!-- LEFT SIDEBAR NAVIGATION -->
+    <aside id="dashboard-sidebar" class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="nav-logo">
+          <img src="./images/logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" />
+        </a>
+        <button id="sidebar-close-btn" class="cart-drawer-close" style="display: none; margin-left: auto;" aria-label="Close Sidebar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <!-- User Profile Summary in Sidebar -->
+      <div class="sidebar-user-preview">
+        <img src="./images/dashboard/avatar-user.webp" alt="Client Avatar" class="sidebar-avatar" />
+        <div class="sidebar-user-meta">
+          <h4 class="user-display-name">Julian Vance</h4>
+          <span class="user-display-email" style="font-size: 0.75rem; color: var(--color-muted); word-break: break-all; display: block; margin-bottom: 0.2rem; text-transform: lowercase; letter-spacing: normal;">user@stackly.com</span>
+          <span style="font-size: 0.7rem; color: var(--color-accent-gold-dark); font-weight: 700; text-transform: uppercase;">Connoisseur Tier</span>
+        </div>
+      </div>
+
+      <!-- 5 Main Sidebar Navigation Items -->
+      <nav class="sidebar-menu" aria-label="Client Dashboard Navigation">
+        <!-- 1. Overview -->
+        <button class="sidebar-item active" data-tab="overview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Overview
+        </button>
+
+        <!-- 2. My Orders -->
+        <button class="sidebar-item" data-tab="orders">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          My Orders
+        </button>
+
+        <!-- 3. Wishlist -->
+        <button class="sidebar-item" data-tab="wishlist">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          Wishlist
+        </button>
+
+        <!-- 4. My Profile -->
+        <button class="sidebar-item" data-tab="profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          My Profile
+        </button>
+
+        <!-- 5. Help & Support -->
+        <button class="sidebar-item" data-tab="support">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          Help & Support
+        </button>
+
+        <!-- Settings tab -->
+        <button class="sidebar-item" data-tab="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          Settings
+        </button>
+      </nav>
+
+      <!-- Logout -->
+      <div class="sidebar-footer">
+        <a href="index.html" class="sidebar-item" style="color: var(--color-primary); margin-bottom: 0.4rem;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+          Back to Storefront
+        </a>
+        <button class="sidebar-logout-btn logout-trigger-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          Sign Out
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN SCROLLABLE CONTENT AREA -->
+    <div class="dashboard-main">
+      <!-- Top Navigation Bar -->
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button id="dashboard-sidebar-toggle" class="dashboard-sidebar-toggle" aria-label="Toggle navigation">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div class="topbar-title">
+            <h1 id="dashboard-topbar-title">Account Overview</h1>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <a href="collections.html" class="btn btn-outline btn-sm">Explore Eyewear</a>
+          <button class="topbar-action-btn" onclick="window.STACKLY_MAIN.openSearchModal()" aria-label="Search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+          <button class="topbar-action-btn" onclick="window.STACKLY_CART.openCartDrawer()" aria-label="Cart">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <span class="badge-count cart-count-badge" style="display: none;">0</span>
+          </button>
+          <div class="topbar-profile-link" style="display: flex; align-items: center; gap: 0.75rem;">
+            <img src="./images/dashboard/avatar-user.webp" alt="Avatar" class="topbar-avatar" />
+            <div style="display: flex; flex-direction: column; text-align: right; line-height: 1.25;">
+              <span class="user-display-name" style="font-size: 0.88rem; font-weight: 600; color: var(--color-primary);">Julian Vance</span>
+              <span class="user-display-email" style="font-size: 0.75rem; color: var(--color-accent-gold-dark); font-weight: 600;">user@stackly.com</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Tabs Content -->
+      <div class="dashboard-content">
+
+        <!-- TAB 1: OVERVIEW -->
+        <div id="tab-overview" class="tab-pane active">
+          <!-- Welcome Message -->
+          <div style="background: linear-gradient(135deg, #1C1A17 0%, #121110 100%); color: #fff; padding: 2.5rem; border-radius: var(--radius-md); margin-bottom: 2.5rem; position: relative; overflow: hidden; box-shadow: var(--shadow-medium);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <span class="eyebrow" style="color: var(--color-accent-gold);">Private Atelier Suite</span>
+                <h2 style="color: #fff; font-size: 2.2rem; margin-bottom: 0.6rem;">Welcome back, <span class="user-display-name">Julian Vance</span>.</h2>
+                <p style="color: var(--color-muted-light); max-width: 580px; font-size: 0.95rem; margin-bottom: 1rem;">
+                  Logged in as <strong class="user-display-email" style="color: #fff;">user@stackly.com</strong>. Your optical prescription is active and verified by our Cadore optical masters. You have complimentary insured express delivery and lifetime workshop servicing on all silhouettes.
+                </p>
+              </div>
+              <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); padding: 0.8rem 1.2rem; border-radius: var(--radius-sm); text-align: right;">
+                <span style="font-size: 0.72rem; color: var(--color-accent-gold); text-transform: uppercase; letter-spacing: 0.1em; display: block; font-weight: 700;">Client Membership</span>
+                <strong style="color: #fff; font-size: 1rem;">Connoisseur VIP</strong>
+                <span style="display: block; font-size: 0.75rem; color: var(--color-muted-light); margin-top: 0.2rem;">Lifetime Optical Warranty Active</span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+              <button class="btn btn-gold btn-sm" onclick="STACKLY_USER_DASHBOARD.switchTab('orders')">View Active Orders</button>
+              <button class="btn btn-outline btn-sm" style="color: #fff; border-color: rgba(255,255,255,0.3);" onclick="STACKLY_USER_DASHBOARD.switchTab('wishlist')">Saved Wishlist</button>
+              <button class="btn btn-outline btn-sm" style="color: #fff; border-color: rgba(255,255,255,0.3);" onclick="STACKLY_USER_DASHBOARD.switchTab('profile')">Optical Prescription</button>
+            </div>
+          </div>
+
+          <!-- Quick Action Shortcuts -->
+          <div class="quick-actions-grid">
+            <div class="quick-action-btn" onclick="STACKLY_USER_DASHBOARD.switchTab('profile')">
+              <div class="quick-action-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              </div>
+              <span>Upload Prescription Rx</span>
+            </div>
+            <div class="quick-action-btn" onclick="STACKLY_USER_DASHBOARD.switchTab('orders')">
+              <div class="quick-action-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+              </div>
+              <span>Track DHL Shipment</span>
+            </div>
+            <div class="quick-action-btn" onclick="STACKLY_USER_DASHBOARD.switchTab('support')">
+              <div class="quick-action-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+              </div>
+              <span>Book Salon Fitting</span>
+            </div>
+            <div class="quick-action-btn" onclick="STACKLY_USER_DASHBOARD.switchTab('support')">
+              <div class="quick-action-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+              </div>
+              <span>Hinge Micro-Adjustment</span>
+            </div>
+            <div class="quick-action-btn" onclick="window.STACKLY_MAIN && window.STACKLY_MAIN.showToast('Complimentary microfiber cloth & ultrasonic care solution added to your next dispatch.', 'success')">
+              <div class="quick-action-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+              </div>
+              <span>Reorder Care Kit</span>
+            </div>
+          </div>
+
+          <!-- Overview Metric Summary Cards -->
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-card-header">
+                <span class="metric-label">Active Orders</span>
+                <div class="metric-icon-box">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path></svg>
+                </div>
+              </div>
+              <div class="metric-value">02</div>
+              <span class="metric-change positive">1 In Transit (DHL Express)</span>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-card-header">
+                <span class="metric-label">Saved Wishlist</span>
+                <div class="metric-icon-box">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </div>
+              </div>
+              <div id="user-wishlist-summary-count" class="metric-value">03 Items</div>
+              <span class="metric-change neutral">Ready to order</span>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-card-header">
+                <span class="metric-label">Prescription Status</span>
+                <div class="metric-icon-box">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                </div>
+              </div>
+              <div class="metric-value" style="font-size: 1.6rem;">Verified</div>
+              <span class="metric-change positive">Zeiss High-Index 1.67</span>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-card-header">
+                <span class="metric-label">Concierge Credits</span>
+                <div class="metric-icon-box">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+              </div>
+              <div class="metric-value">$150</div>
+              <span class="metric-change positive">Available on next order</span>
+            </div>
+          </div>
+
+          <!-- Active Order Live Tracker Banner -->
+          <div class="dashboard-card">
+            <div class="dashboard-card-header">
+              <div>
+                <span class="eyebrow" style="color: var(--color-accent-gold-dark);">Live Logistics Feed</span>
+                <h3 style="font-size: 1.15rem;">Active Shipment: Order #STK-829104</h3>
+              </div>
+              <span class="status-badge in-transit">In Transit · Estimated Delivery Nov 19</span>
+            </div>
+            <div class="order-tracker">
+              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--color-secondary); margin-bottom: 0.5rem;">
+                <span><strong>Origin:</strong> Sabae Titanium Workshop, Japan</span>
+                <span><strong>Carrier:</strong> DHL Express Air (Waybill: #9842-1049-21)</span>
+              </div>
+              <div class="tracker-steps">
+                <div class="tracker-step completed">
+                  <div class="step-dot">&#10003;</div>
+                  <span class="step-label">Order Placed</span>
+                </div>
+                <div class="tracker-step completed">
+                  <div class="step-dot">&#10003;</div>
+                  <span class="step-label">Rx Surfacing</span>
+                </div>
+                <div class="tracker-step completed">
+                  <div class="step-dot">&#10003;</div>
+                  <span class="step-label">Hand Beveling</span>
+                </div>
+                <div class="tracker-step active">
+                  <div class="step-dot">4</div>
+                  <span class="step-label">In Flight (DHL)</span>
+                </div>
+                <div class="tracker-step">
+                  <div class="step-dot">5</div>
+                  <span class="step-label">Final Delivery</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Orders & Optical Profile Split -->
+          <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; margin-bottom: 2.5rem;">
+            <!-- Recent Orders Card -->
+            <div class="dashboard-card" style="margin-bottom: 0;">
+              <div class="dashboard-card-header">
+                <h3>Recent Orders</h3>
+                <button class="btn btn-text" onclick="STACKLY_USER_DASHBOARD.switchTab('orders')">View All &rarr;</button>
+              </div>
+              <div id="user-recent-orders-list"></div>
+            </div>
+
+            <!-- Certified Optical Prescription Card -->
+            <div class="dashboard-card" style="margin-bottom: 0;">
+              <div class="dashboard-card-header">
+                <div>
+                  <h3>Certified Optical Rx</h3>
+                  <span style="font-size: 0.78rem; color: var(--color-accent-green); font-weight: 700;">ACTIVE · Valid until Nov 2027</span>
+                </div>
+                <button class="btn btn-text" onclick="STACKLY_USER_DASHBOARD.switchTab('profile')">Manage &rarr;</button>
+              </div>
+              <div style="margin-bottom: 1rem;">
+                <table class="rx-table">
+                  <thead>
+                    <tr>
+                      <th>Eye</th>
+                      <th>SPH</th>
+                      <th>CYL</th>
+                      <th>AXIS</th>
+                      <th>PD</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>OD (Right)</td>
+                      <td>-1.75</td>
+                      <td>-0.50</td>
+                      <td>085°</td>
+                      <td rowspan="2" style="vertical-align: middle; font-weight: 700;">63.5 mm</td>
+                    </tr>
+                    <tr>
+                      <td>OS (Left)</td>
+                      <td>-2.00</td>
+                      <td>-0.25</td>
+                      <td>095°</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem; color: var(--color-muted);">
+                <div style="display: flex; justify-content: space-between;">
+                  <span>Attending Optometrist:</span>
+                  <strong style="color: var(--color-primary);">Dr. Aris Thorne, O.D.</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span>Coating Technology:</span>
+                  <span style="color: var(--color-accent-gold-dark); font-weight: 600;">Zeiss DuraVision Platinum AR</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span>Lens Index:</span>
+                  <strong style="color: var(--color-primary);">1.67 High-Index Aspheric</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recommended Eyewear -->
+          <div class="dashboard-card">
+            <div class="dashboard-card-header">
+              <div>
+                <h3>Recommended for Your Facial Architecture</h3>
+                <p style="font-size: 0.85rem; color: var(--color-muted);">Curated by our optical stylists to balance oval and angular silhouettes.</p>
+              </div>
+              <a href="collections.html" class="btn btn-text">Browse Full Archive &rarr;</a>
+            </div>
+            <div id="user-recommended-grid" class="products-grid" style="grid-template-columns: repeat(3, 1fr);"></div>
+          </div>
+
+          <!-- Account Activity Log & Servicing Roadmap Split -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.5rem;">
+            <!-- Live Activity Log -->
+            <div class="dashboard-card" style="margin-bottom: 0;">
+              <div class="dashboard-card-header">
+                <h3>Atelier Activity History</h3>
+                <span style="font-size: 0.8rem; color: var(--color-muted);">Last 30 Days</span>
+              </div>
+              <div class="activity-feed-list">
+                <div class="activity-feed-item">
+                  <div class="activity-dot green"></div>
+                  <div class="activity-meta">
+                    <strong>Logged In to Client Portal</strong>
+                    <p>Session authenticated with <span class="user-display-email">user@stackly.com</span></p>
+                  </div>
+                  <span class="activity-time">Just now</span>
+                </div>
+                <div class="activity-feed-item">
+                  <div class="activity-dot gold"></div>
+                  <div class="activity-meta">
+                    <strong>Shipment Departed Sabae Hub</strong>
+                    <p>Order #STK-829104 cleared Japanese customs via DHL Express</p>
+                  </div>
+                  <span class="activity-time">Yesterday</span>
+                </div>
+                <div class="activity-feed-item">
+                  <div class="activity-dot dark"></div>
+                  <div class="activity-meta">
+                    <strong>Optical Prescription Verified</strong>
+                    <p>Dr. Thorne certified Zeiss 1.67 High-Index specifications</p>
+                  </div>
+                  <span class="activity-time">3 days ago</span>
+                </div>
+                <div class="activity-feed-item">
+                  <div class="activity-dot gold"></div>
+                  <div class="activity-meta">
+                    <strong>Wishlist Silhouette Added</strong>
+                    <p>Geneva Rimless Octagon saved to private collection</p>
+                  </div>
+                  <span class="activity-time">1 week ago</span>
+                </div>
+                <div class="activity-feed-item">
+                  <div class="activity-dot green"></div>
+                  <div class="activity-meta">
+                    <strong>Complimentary Care Kit Dispatched</strong>
+                    <p>Ultrasonic bath concentrate and microfiber cloths delivered</p>
+                  </div>
+                  <span class="activity-time">2 weeks ago</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Maintenance & Servicing Calendar -->
+            <div class="dashboard-card" style="margin-bottom: 0;">
+              <div class="dashboard-card-header">
+                <h3>Complimentary Care Roadmap</h3>
+                <span class="badge" style="background: rgba(63, 117, 83, 0.1); color: var(--color-accent-green); font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: var(--radius-pill); font-weight: 700;">Included in Connoisseur Tier</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 1.2rem; font-size: 0.9rem;">
+                <div style="padding: 1rem; background: var(--color-bg-card-alt); border-radius: var(--radius-sm); border-left: 3px solid var(--color-accent-gold);">
+                  <strong style="color: var(--color-primary); display: block; margin-bottom: 0.25rem;">6-Month Hinge Calibration & Screw Torque</strong>
+                  <p style="color: var(--color-muted); font-size: 0.82rem; margin-bottom: 0.5rem;">Recommended every 6 months to maintain seamless 5-barrel tension and avoid temple wobble.</p>
+                  <button class="btn btn-outline btn-sm" onclick="STACKLY_USER_DASHBOARD.switchTab('support')">Schedule Workshop Tune-Up</button>
+                </div>
+                <div style="padding: 1rem; background: var(--color-bg-card-alt); border-radius: var(--radius-sm); border-left: 3px solid var(--color-accent-green);">
+                  <strong style="color: var(--color-primary); display: block; margin-bottom: 0.25rem;">Ultrasonic Deep Cleansing & Polish</strong>
+                  <p style="color: var(--color-muted); font-size: 0.82rem; margin-bottom: 0.5rem;">Organic beechwood tumbling and ultrasonic bath to restore acetate luster.</p>
+                  <span style="font-size: 0.75rem; color: var(--color-accent-green); font-weight: 700;">Available at any flagship atelier</span>
+                </div>
+                <div style="padding: 1rem; background: var(--color-bg-card-alt); border-radius: var(--radius-sm); border-left: 3px solid var(--color-primary);">
+                  <strong style="color: var(--color-primary); display: block; margin-bottom: 0.25rem;">Annual Optical Vision Checkup</strong>
+                  <p style="color: var(--color-muted); font-size: 0.82rem; margin-bottom: 0.5rem;">Annual digital phoropter scan to renew prescription parameters.</p>
+                  <span style="font-size: 0.75rem; color: var(--color-muted);">Next recommended: November 2027</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: MY ORDERS -->
+        <div id="tab-orders" class="tab-pane">
+          <div class="dashboard-card">
+            <div class="dashboard-card-header" style="flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <h3>Order History & Fulfillment</h3>
+                <p style="color: var(--color-muted); font-size: 0.88rem;">Track express air shipments, download certified VAT invoices, or reorder silhouettes.</p>
+              </div>
+              <div style="display: flex; gap: 0.5rem;">
+                <button class="btn btn-primary btn-sm" onclick="filterUserOrders('all', this)">All Orders (4)</button>
+                <button class="btn btn-outline btn-sm" onclick="filterUserOrders('in-transit', this)">In Transit (1)</button>
+                <button class="btn btn-outline btn-sm" onclick="filterUserOrders('delivered', this)">Delivered (3)</button>
+              </div>
+            </div>
+
+            <!-- Orders Container (Rendered by JS) -->
+            <div id="user-orders-list"></div>
+
+            <!-- Guarantee Notice Banner -->
+            <div style="margin-top: 2rem; background: var(--color-bg-card-alt); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <strong style="color: var(--color-primary); display: block; margin-bottom: 0.2rem;">STACKLY Lifetime Atelier Warranty</strong>
+                <p style="font-size: 0.85rem; color: var(--color-muted); margin: 0;">All frames include complimentary hinge replacements, bridge realignment, and ultrasonic deep cleaning at any authorized atelier worldwide.</p>
+              </div>
+              <a href="contact.html" class="btn btn-outline btn-sm">Find Workshop Near You</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: WISHLIST -->
+        <div id="tab-wishlist" class="tab-pane">
+          <div class="dashboard-card">
+            <div class="dashboard-card-header">
+              <div>
+                <h3>Saved Silhouettes (Wishlist)</h3>
+                <p style="color: var(--color-muted); font-size: 0.88rem;">Frames you have curated for future prescription fitting or seasonal acquisitions.</p>
+              </div>
+              <a href="collections.html" class="btn btn-outline btn-sm">Explore More Frames</a>
+            </div>
+            <div id="user-wishlist-grid" class="products-grid" style="grid-template-columns: repeat(3, 1fr);"></div>
+          </div>
+
+          <!-- Side-by-Side Architectural Specification Comparison Table -->
+          <div class="dashboard-card" style="margin-top: 2.5rem;">
+            <div class="dashboard-card-header">
+              <div>
+                <h3>Frame Geometry & Technical Comparison</h3>
+                <p style="font-size: 0.85rem; color: var(--color-muted);">Compare architectural proportions across your wishlisted silhouettes before placing an optical order.</p>
+              </div>
+            </div>
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Silhouette</th>
+                    <th>Category</th>
+                    <th>Frame Width</th>
+                    <th>Lens Diameter</th>
+                    <th>Bridge Gap</th>
+                    <th>Temple Length</th>
+                    <th>Net Weight</th>
+                    <th>Material Engineering</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Aura Minimalist Acetate</strong></td>
+                    <td>Sunglasses</td>
+                    <td>142 mm</td>
+                    <td>50 mm</td>
+                    <td>21 mm</td>
+                    <td>145 mm</td>
+                    <td>28g</td>
+                    <td>Italian Bio-Acetate & German 5-Barrel</td>
+                    <td><button class="btn btn-primary btn-sm" onclick="window.STACKLY_CART.addToCart('stk-001', 1)">Add to Bag</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Komorebi Titanium Wire</strong></td>
+                    <td>Optical Frames</td>
+                    <td>138 mm</td>
+                    <td>49 mm</td>
+                    <td>20 mm</td>
+                    <td>142 mm</td>
+                    <td>12g (Featherlight)</td>
+                    <td>Cold-Forged Japanese Beta-Titanium</td>
+                    <td><button class="btn btn-primary btn-sm" onclick="window.STACKLY_CART.addToCart('stk-002', 1)">Add to Bag</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Geneva Rimless Octagon</strong></td>
+                    <td>Optical Frames</td>
+                    <td>137 mm</td>
+                    <td>50 mm</td>
+                    <td>19 mm</td>
+                    <td>142 mm</td>
+                    <td>10g (Ultralight)</td>
+                    <td>24K Plated Titanium Tension Wire</td>
+                    <td><button class="btn btn-primary btn-sm" onclick="window.STACKLY_CART.addToCart('stk-013', 1)">Add to Bag</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: MY PROFILE -->
+        <div id="tab-profile" class="tab-pane">
+          <div class="dashboard-card">
+            <div class="dashboard-card-header">
+              <div>
+                <h3>Atelier Profile & Fitting Address</h3>
+                <p style="color: var(--color-muted); font-size: 0.88rem;">Manage your authenticated contact coordinates and primary courier delivery destination.</p>
+              </div>
+              <div style="font-size: 0.8rem; background: var(--color-bg-card-alt); border: 1px solid var(--color-border); padding: 0.35rem 0.8rem; border-radius: var(--radius-pill); font-weight: 600; color: var(--color-accent-gold-dark);">
+                Logged in as: <span class="user-display-email">user@stackly.com</span>
+              </div>
+            </div>
+
+            <form id="profile-edit-form">
+              <div class="profile-form-grid">
+                <div class="form-group">
+                  <label for="profile-name">Full Legal Name *</label>
+                  <input type="text" id="profile-name" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="profile-email">Email Address (Login ID) *</label>
+                  <input type="email" id="profile-email" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="profile-phone">Telephone (For DHL Delivery Updates)</label>
+                  <input type="text" id="profile-phone" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label for="profile-address">Primary Shipping Address</label>
+                  <input type="text" id="profile-address" class="form-control" />
+                </div>
+              </div>
+              <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+                <button type="submit" class="btn btn-primary">Save Profile Changes</button>
+                <button type="button" class="btn btn-outline" onclick="STACKLY_USER_DASHBOARD.renderUserProfile()">Discard Revisions</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Prescription Vault Section -->
+          <div class="dashboard-card" style="margin-top: 2.5rem;">
+            <div class="dashboard-card-header">
+              <div>
+                <h3>Optical Prescription Vault</h3>
+                <p style="font-size: 0.85rem; color: var(--color-muted);">Secure digital repository for ophthalmologist scripts, pupillary measurements, and Zeiss certificates.</p>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="window.STACKLY_MAIN && window.STACKLY_MAIN.showToast('Please select a PDF or JPEG prescription document from your computer.', 'info')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                Upload New Rx Script
+              </button>
+            </div>
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Script ID</th>
+                    <th>Prescribing Optometrist</th>
+                    <th>Date Issued</th>
+                    <th>Expiry Date</th>
+                    <th>Parameters</th>
+                    <th>Verification Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>RX-2026-904</strong></td>
+                    <td>Dr. Aris Thorne, O.D. (New York Eye Infirmary)</td>
+                    <td>Nov 04, 2026</td>
+                    <td>Nov 04, 2027</td>
+                    <td>OD -1.75 / OS -2.00 / PD 63.5</td>
+                    <td><span class="status-badge delivered">Verified Active</span></td>
+                    <td><button class="btn btn-outline btn-sm" onclick="window.STACKLY_MAIN.showToast('Opening verified PDF Rx file...', 'info')">View Script PDF</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>RX-2025-412</strong></td>
+                    <td>Dr. Christine Lin, M.D.</td>
+                    <td>Oct 12, 2025</td>
+                    <td>Oct 12, 2026</td>
+                    <td>OD -1.50 / OS -1.75 / PD 63.0</td>
+                    <td><span class="status-badge processing">Archived History</span></td>
+                    <td><button class="btn btn-outline btn-sm" onclick="window.STACKLY_MAIN.showToast('Opening archived PDF...', 'info')">View Archive</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Multi-Address Book & Payment Instruments Split -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.5rem;">
+            <!-- Address Book -->
+            <div class="dashboard-card" style="margin-bottom: 0;">
+              <div class="dashboard-card-header">
+                <h3>Saved Address Book</h3>
+                <button class="btn btn-text" onclick="window.STACKLY_MAIN.showToast('Address creation modal opened.', 'info')">+ Add Address</button>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div style="padding: 1.2rem; border: 1px solid var(--color-accent-gold); border-radius: var(--radius-sm); background: var(--color-bg-card-alt);">
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+                    <strong style="color: var(--color-primary);">Primary Residence (Default)</strong>
+                    <span class="badge" style="background: var(--color-accent-gold-dark); color: #fff; font-size: 0.65rem; padding: 0.15rem 0.5rem; border-radius: var(--radius-pill);">Default</span>
+                  </div>
+                  <p style="font-size: 0.85rem; color: var(--color-muted); margin: 0 0 0.5rem;">
+                    742 Evergreen Terrace, Suite 402<br />New York, NY 10012, United States
+                  </p>
+                  <span style="font-size: 0.78rem; color: var(--color-primary); font-weight: 600;">Tel: +1 (555) 782-9014</span>
+                </div>
+                <div style="padding: 1.2rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: #fff;">
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+                    <strong style="color: var(--color-primary);">Atelier Suite & Office</strong>
+                  </div>
+                  <p style="font-size: 0.85rem; color: var(--color-muted); margin: 0 0 0.5rem;">
+                    580 Fifth Avenue, Floor 18<br />New York, NY 10036, United States
+                  </p>
+                  <span style="font-size: 0.78rem; color: var(--color-primary); font-weight: 600;">Tel: +1 (555) 349-1100</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Saved Payment Instruments -->
+            <div class="dashboard-card" style="margin-bottom: 0;">
+              <div class="dashboard-card-header">
+                <h3>Saved Payment Instruments</h3>
+                <button class="btn btn-text" onclick="window.STACKLY_MAIN.showToast('Payment method modal opened.', 'info')">+ Add Card</button>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div style="padding: 1.2rem; border: 1px solid var(--color-accent-gold); border-radius: var(--radius-sm); background: var(--color-bg-card-alt); display: flex; align-items: center; justify-content: space-between;">
+                  <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div style="width: 48px; height: 32px; background: #1C1917; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: var(--color-accent-gold); font-size: 0.75rem; font-weight: 800;">
+                      AMEX
+                    </div>
+                    <div>
+                      <strong style="display: block; font-size: 0.9rem;">Amex Platinum Centurion</strong>
+                      <span style="font-size: 0.78rem; color: var(--color-muted);">Ending in •••• 1004 · Exp 08/29</span>
+                    </div>
+                  </div>
+                  <span class="badge" style="background: var(--color-accent-gold-dark); color: #fff; font-size: 0.65rem; padding: 0.15rem 0.5rem; border-radius: var(--radius-pill);">Default</span>
+                </div>
+                <div style="padding: 1.2rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: #fff; display: flex; align-items: center; justify-content: space-between;">
+                  <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div style="width: 48px; height: 32px; background: #1E3A8A; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.75rem; font-weight: 800;">
+                      VISA
+                    </div>
+                    <div>
+                      <strong style="display: block; font-size: 0.9rem;">Visa Infinite Concierge</strong>
+                      <span style="font-size: 0.78rem; color: var(--color-muted);">Ending in •••• 4242 · Exp 12/28</span>
+                    </div>
+                  </div>
+                  <button class="btn btn-outline btn-sm" onclick="window.STACKLY_MAIN.showToast('Card set as default.', 'success')">Make Default</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 5: HELP & SUPPORT -->
+        <div id="tab-support" class="tab-pane">
+          <!-- Concierge Contact Cards Grid -->
+          <div class="metrics-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 2rem;">
+            <div class="metric-card">
+              <span class="eyebrow" style="color: var(--color-accent-gold-dark);">Direct Line</span>
+              <h4 style="margin: 0.4rem 0 0.8rem; font-size: 1.1rem;">Master Optician Desk</h4>
+              <p style="font-size: 0.82rem; color: var(--color-muted); margin-bottom: 1rem;">Private consultation on progressive lens design, prism corrections, and Zeiss AR coatings.</p>
+              <strong style="font-size: 0.95rem; color: var(--color-primary); display: block; margin-bottom: 0.3rem;">+1 (800) 782-2559</strong>
+              <span style="font-size: 0.78rem; color: var(--color-muted);">optician@stackly.com</span>
+            </div>
+            <div class="metric-card">
+              <span class="eyebrow" style="color: var(--color-accent-gold-dark);">Priority Dispatch</span>
+              <h4 style="margin: 0.4rem 0 0.8rem; font-size: 1.1rem;">Logistics & Air Courier</h4>
+              <p style="font-size: 0.82rem; color: var(--color-muted); margin-bottom: 1rem;">Express tracking assistance for worldwide DHL shipments from Japan and Italian workshops.</p>
+              <strong style="font-size: 0.95rem; color: var(--color-primary); display: block; margin-bottom: 0.3rem;">+1 (800) 782-2560</strong>
+              <span style="font-size: 0.78rem; color: var(--color-muted);">logistics@stackly.com</span>
+            </div>
+            <div class="metric-card">
+              <span class="eyebrow" style="color: var(--color-accent-gold-dark);">Atelier Appointments</span>
+              <h4 style="margin: 0.4rem 0 0.8rem; font-size: 1.1rem;">Private Salon Fitting</h4>
+              <p style="font-size: 0.82rem; color: var(--color-muted); margin-bottom: 1rem;">Reserve our Madison Avenue 4th floor private optical suite for personal face-shape analysis.</p>
+              <strong style="font-size: 0.95rem; color: var(--color-primary); display: block; margin-bottom: 0.3rem;">742 Madison Ave, NYC</strong>
+              <span style="font-size: 0.78rem; color: var(--color-muted);">salon@stackly.com</span>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; margin-bottom: 2.5rem;">
+            <!-- Submit Support Ticket Form -->
+            <div class="dashboard-card" style="margin-bottom: 0;">
+              <div class="dashboard-card-header">
+                <div>
+                  <h3>Submit an Optical Support Ticket</h3>
+                  <p style="font-size: 0.85rem; color: var(--color-muted);">Our optical staff will respond to <span class="user-display-email">user@stackly.com</span> within 4 hours.</p>
+                </div>
+              </div>
+              <form id="support-ticket-form">
+                <div class="form-group">
+                  <label for="ticket-subject">Inquiry Classification</label>
+                  <select id="ticket-subject" class="auth-select" style="padding-left: 1rem;">
+                    <option value="Prescription Lens Clarification">Prescription Lens Clarification</option>
+                    <option value="Hinge Micro-Adjustment Request">Hinge Micro-Adjustment Request</option>
+                    <option value="Order Tracking & Logistics">Order Tracking & Logistics</option>
+                    <option value="Private Salon Fitting Appointment">Private Salon Fitting Appointment</option>
+                    <option value="Complimentary Ultrasonic Cleaning">Complimentary Ultrasonic Cleaning</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="ticket-priority">Priority Level</label>
+                  <select id="ticket-priority" class="auth-select" style="padding-left: 1rem;">
+                    <option value="Normal">Normal (Response in 4 hours)</option>
+                    <option value="Urgent">Urgent (Courier or In-Flight Order)</option>
+                    <option value="VIP">VIP Connoisseur Immediate Attention</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="ticket-message">Describe Your Inquiry</label>
+                  <textarea id="ticket-message" class="form-control" style="min-height: 120px;" placeholder="Please detail your request or optical question..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Dispatch Support Ticket</button>
+              </form>
+            </div>
+
+            <!-- Active & Historical Tickets Table -->
+            <div class="dashboard-card" style="margin-bottom: 0;">
+              <div class="dashboard-card-header">
+                <div>
+                  <h3>Your Support Ticket History</h3>
+                  <p style="font-size: 0.85rem; color: var(--color-muted);">Track resolutions and communication records.</p>
+                </div>
+              </div>
+              <div class="data-table-wrapper">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Ticket ID</th>
+                      <th>Subject</th>
+                      <th>Dispatched</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>#TCK-4821</strong></td>
+                      <td>Zeiss Lens Tint Consultation</td>
+                      <td>Nov 06, 2026</td>
+                      <td><span class="status-badge delivered">Resolved</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>#TCK-3914</strong></td>
+                      <td>DHL Address Suite Update</td>
+                      <td>Oct 29, 2026</td>
+                      <td><span class="status-badge delivered">Resolved</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>#TCK-2208</strong></td>
+                      <td>Custom 5-Barrel Hinge Tension</td>
+                      <td>Sep 18, 2026</td>
+                      <td><span class="status-badge delivered">Completed</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comprehensive Eyewear FAQ Accordion -->
+          <div class="dashboard-card">
+            <div class="dashboard-card-header">
+              <div>
+                <h3>Frequently Addressed Eyewear Questions</h3>
+                <p style="font-size: 0.85rem; color: var(--color-muted);">Expert guidance regarding frame care, titanium durability, and prescription optics.</p>
+              </div>
+            </div>
+            <div class="faq-accordion">
+              <div class="faq-card open">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                  <span>How should I cleanse and maintain Japanese beta-titanium and bio-acetate frames?</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                  Use only lukewarm water and the pH-balanced STACKLY organic cleansing solution provided in your care kit. Never use hot water, window cleaners, or paper towels, which can strip anti-reflective coatings and dry out cellulose bio-acetate. Wipe gently with the supplied microfiber cloth from the bridge outwards.
+                </div>
+              </div>
+
+              <div class="faq-card">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                  <span>What is the difference between beta-titanium and standard metal alloys?</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                  Beta-titanium is forged in Sabae, Japan with an advanced molecular lattice that provides exceptional flexibility, 100% hypoallergenic immunity (zero nickel), and weights under 12 grams. It flexes under stress without deforming, ensuring permanent temple comfort behind the ear.
+                </div>
+              </div>
+
+              <div class="faq-card">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                  <span>How do I determine my Pupillary Distance (PD) for optical ordering?</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                  Your PD is the millimeter distance between your pupils. You can find it listed on your optometrist prescription, or schedule a 5-minute virtual video calibration with our master optician desk where our photogrammetry engine measures your exact visual axes to a tolerance of 0.1mm.
+                </div>
+              </div>
+
+              <div class="faq-card">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                  <span>Are STACKLY mineral glass lenses polarized and UV400 rated?</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                  Every sunglass silhouette features distortion-free mineral glass or Japanese ultra-polar nylon lenses offering 100% UVA, UVB, and UVC protection up to 400nm, accompanied by an 8-layer backside anti-reflective coating to prevent bounce-back glare into your eyes.
+                </div>
+              </div>
+
+              <div class="faq-card">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                  <span>How does complimentary lifetime workshop servicing work?</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                  As a registered client, you can bring or courier your eyewear to any STACKLY atelier worldwide at any time. We replace worn nose pads, re-torque custom German screws, ultrasonic-clean all components, and re-polish acetate temples completely free of charge for the life of the frame.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 6: SETTINGS -->
+        <div id="tab-settings" class="tab-pane">
+          <div class="dashboard-card">
+            <div class="dashboard-card-header">
+              <div>
+                <h3>Account & Communication Preferences</h3>
+                <p style="color: var(--color-muted); font-size: 0.88rem;">Manage release dispatch invitations and courier notifications for <span class="user-display-email">user@stackly.com</span>.</p>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1.8rem;">
+              <div>
+                <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Atelier Seasonal Release Dispatches</h4>
+                <label style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.9rem; color: var(--color-secondary); cursor: pointer;">
+                  <input type="checkbox" checked /> Receive advance private invitations to numbered Japanese beta-titanium releases.
+                </label>
+              </div>
+              <div>
+                <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Order Logistics Notifications</h4>
+                <label style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.9rem; color: var(--color-secondary); cursor: pointer;">
+                  <input type="checkbox" checked /> Send courier SMS alerts when spectacles leave Cadore or Sabae workshops.
+                </label>
+              </div>
+              <div>
+                <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Optical Prescription Expiry Reminders</h4>
+                <label style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.9rem; color: var(--color-secondary); cursor: pointer;">
+                  <input type="checkbox" checked /> Notify 30 days before prescription reaches its annual renewal date.
+                </label>
+              </div>
+              <div style="border-top: 1px solid var(--color-border); padding-top: 1.5rem;">
+                <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Security & Active Sessions</h4>
+                <p style="font-size: 0.88rem; color: var(--color-muted); margin-bottom: 1rem;">
+                  Current authenticated session on Windows / Chrome · Logged in as <strong class="user-display-email">user@stackly.com</strong>.
+                </p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                  <button class="btn btn-outline btn-sm logout-trigger-btn" style="color: var(--color-accent-red); border-color: var(--color-accent-red);">Sign Out of Client Portal</button>
+                  <button class="btn btn-outline btn-sm" onclick="window.STACKLY_MAIN.showToast('All other active sessions revoked.', 'info')">Revoke Other Devices</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Shared Search & QuickView Modals -->
+  <div id="search-modal" class="search-modal">
+    <div class="search-modal-container">
+      <button class="search-modal-close" onclick="window.STACKLY_MAIN.closeSearchModal()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <span class="eyebrow">Discover Haute Optique</span>
+      <div class="search-input-group">
+        <input type="text" id="global-search-input" class="search-input" placeholder="Search by frame silhouette..." />
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+
+  <div id="cart-drawer" class="cart-drawer">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">Shopping Bag</div>
+      <button class="cart-drawer-close" onclick="window.STACKLY_CART.closeCartDrawer()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <div id="cart-drawer-items" class="cart-drawer-items"></div>
+    <div id="cart-drawer-footer" class="cart-drawer-footer">
+      <div class="cart-total-row"><span>Total</span><span id="cart-drawer-total">$0</span></div>
+      <button class="btn btn-primary" onclick="window.STACKLY_CART.openCheckoutDemo()">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <div id="nav-backdrop" class="nav-backdrop"></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/user-dashboard.js"></script>
+</body>
+</html>

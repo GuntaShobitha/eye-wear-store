@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Atelier STACKLY — The Architectural Vision</title>
+  <meta name="description" content="Learn about STACKLY's heritage, Japanese beta-titanium craftsmanship, Italian bio-acetate, and our uncompromising design philosophy." />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div id="page-loader" class="page-loader">
+    <div class="loader-spinner"></div>
+    <span class="loader-text">STACKLY · ATELIER</span>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="navbar">
+      <a href="index.html" class="nav-logo">
+        <img src="./images/logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" />
+      </a>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="collections.html" class="nav-link">Collections</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="journal.html" class="nav-link">Journal</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-action-btn" onclick="window.STACKLY_MAIN.openSearchModal()" aria-label="Search Eyewear">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <a href="user-dashboard.html" class="nav-action-btn" aria-label="View Saved Wishlist">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="badge-count wishlist-count-badge" style="display: none;">0</span>
+        </a>
+
+        <button class="nav-action-btn" onclick="window.STACKLY_CART.openCartDrawer()" aria-label="Open Shopping Bag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="badge-count cart-count-badge" style="display: none;">0</span>
+        </button>
+
+        <a href="login.html" class="nav-login-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          Sign In
+        </a>
+
+        <button id="hamburger-btn" class="hamburger" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-nav" class="mobile-nav">
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="collections.html" class="mobile-nav-link">Collections</a>
+      <a href="services.html" class="mobile-nav-link">Services</a>
+      <a href="journal.html" class="mobile-nav-link">Journal</a>
+      <a href="about.html" class="mobile-nav-link active">About Atelier</a>
+      <a href="contact.html" class="mobile-nav-link">Contact & Atelier</a>
+      <a href="user-dashboard.html" class="mobile-nav-link">User Dashboard</a>
+      <a href="admin-dashboard.html" class="mobile-nav-link">Admin Dashboard</a>
+    </div>
+    <div class="mobile-nav-footer">
+      <a href="login.html" class="btn btn-primary nav-login-btn">Sign In / Portal</a>
+      <p style="font-size: 0.8rem; color: var(--color-muted); text-align: center;">STACKLY Haute Optique · Est. 2024</p>
+    </div>
+  </div>
+
+  <div id="nav-backdrop" class="nav-backdrop"></div>
+
+  <!-- Cart Drawer -->
+  <div id="cart-drawer" class="cart-drawer">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">Shopping Bag</div>
+      <button class="cart-drawer-close" onclick="window.STACKLY_CART.closeCartDrawer()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <div id="cart-drawer-items" class="cart-drawer-items"></div>
+    <div id="cart-drawer-footer" class="cart-drawer-footer">
+      <div class="cart-total-row"><span>Total</span><span id="cart-drawer-total">$0</span></div>
+      <button class="btn btn-primary" onclick="window.STACKLY_CART.openCheckoutDemo()">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- Search Modal -->
+  <div id="search-modal" class="search-modal">
+    <div class="search-modal-container">
+      <button class="search-modal-close" onclick="window.STACKLY_MAIN.closeSearchModal()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <span class="eyebrow">Discover Haute Optique</span>
+      <div class="search-input-group">
+        <input type="text" id="global-search-input" class="search-input" placeholder="Search by frame silhouette..." />
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+
+  <!-- Quick View Modal -->
+  <div id="quickview-modal" class="quickview-modal">
+    <div class="quickview-content">
+      <button class="quickview-close" onclick="window.STACKLY_MAIN.closeQuickView()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div id="quickview-modal-body" style="display: contents;"></div>
+    </div>
+  </div>
+
+  <main>
+    <!-- SECTION 1: ABOUT HERO WITH BACKGROUND IMAGE -->
+    <section class="page-hero">
+      <img src="./images/about/about-hero.webp" alt="STACKLY Optical Atelier & Design Studio" class="page-hero-bg" />
+      <div class="container">
+        <div class="page-hero-content reveal">
+          <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <span>About Atelier</span>
+          </div>
+          <span class="eyebrow">Our Origins & Architecture</span>
+          <h1>Sculpting Light, Defining Character</h1>
+          <p>
+            An optical house born from architectural purism. We conceive frames not merely as sight accessories, but as permanent structural sculptures for the human face.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: STACKLY BRAND STORY -->
+    <section class="section-spacing">
+      <div class="container">
+        <div class="editorial-grid">
+          <div class="editorial-content reveal">
+            <span class="eyebrow">Chapter I · The Genesis</span>
+            <h2>Rejecting the ephemeral for the enduring.</h2>
+            <p>
+              STACKLY was established in response to an eyewear landscape saturated with disposable acetate and synthetic composites that lose luster within seasons. We set out to build an optical house guided by the principles of Bauhaus architecture: form following function, unvarnished material integrity, and mathematical proportion.
+            </p>
+            <p>
+              From our dual design studios in Milan and Kyoto, our master craftsmen synthesize European sculptural volume with the peerless precision of Japanese metallurgical heritage.
+            </p>
+            <div style="border-left: 3px solid var(--color-accent-gold-dark); padding-left: 1.5rem; margin-top: 2rem;">
+              <p style="font-family: var(--font-serif); font-size: 1.25rem; font-style: italic; color: var(--color-primary); margin-bottom: 0.5rem;">
+                "A frame should never disguise the face; it should frame the mind's intent."
+              </p>
+              <span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-muted);">— The STACKLY Manifesto</span>
+            </div>
+          </div>
+          <div class="editorial-images reveal">
+            <img src="./images/about/story.webp" alt="Hand-shaping acetate eye rim" class="editorial-img-main" loading="lazy" />
+            <img src="./images/about/craftsmanship.webp" alt="Japanese hand-engraved core wire" class="editorial-img-sub" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: OUR PHILOSOPHY -->
+    <section class="section-spacing" style="background-color: var(--color-bg-card-alt);">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Foundational Tenets</span>
+          <h2>The Three Pillars of STACKLY</h2>
+          <p>Every frame that departs our workshop conforms strictly to our three uncompromised tenets of eyewear architecture.</p>
+        </div>
+        <div class="features-grid reveal-parent">
+          <div class="feature-box stagger-item">
+            <div class="feature-icon-wrapper">01</div>
+            <h3>Anatomical Equilibrium</h3>
+            <p>Weight distribution centered meticulously across the sphenoid bone, eliminating bridge redness and temple pinch forever.</p>
+          </div>
+          <div class="feature-box stagger-item">
+            <div class="feature-icon-wrapper">02</div>
+            <h3>Organic Bio-Materiality</h3>
+            <p>Cotton seed cellulose and plant tree resins cured over twelve months to resist thermal deformation and synthetic odors.</p>
+          </div>
+          <div class="feature-box stagger-item">
+            <div class="feature-icon-wrapper">03</div>
+            <h3>Optical Perfection</h3>
+            <p>Medical-grade anti-reflective optics tuned to filter harmful UV rays while preserving chromatic fidelity in natural light.</p>
+          </div>
+          <div class="feature-box stagger-item">
+            <div class="feature-icon-wrapper">04</div>
+            <h3>Repairable Longevity</h3>
+            <p>Engineered with modular, micro-screwed 5-barrel hinges to allow effortless servicing across multiple generations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: CRAFTSMANSHIP & QUALITY -->
+    <section class="section-spacing">
+      <div class="container">
+        <div class="editorial-grid" style="grid-template-columns: 1.15fr 1fr;">
+          <div class="editorial-images reveal">
+            <img src="./images/about/craftsmanship.webp" alt="Atelier Craftsman measuring frame caliper" class="editorial-img-main" style="width: 100%;" loading="lazy" />
+          </div>
+          <div class="editorial-content reveal">
+            <span class="eyebrow">Eighty-Four Operations</span>
+            <h2>Crafted by Hands, Guided by Calipers</h2>
+            <p>
+              While contemporary industry relies on rapid injection molding, each STACKLY frame undergoes eighty-four manual operations. Blocks of cured acetate are milled on five-axis precision CNC machines before hand-beveling with miniature Japanese rasps.
+            </p>
+            <p>
+              The frames are then immersed in organic beechwood chips infused with pumice stone for seventy-two hours in rotating barrels. This traditional tumbling process achieves a deep, mirror-like organic luster that no spray coating can duplicate.
+            </p>
+            <div style="display: flex; gap: 2rem; margin-top: 2rem;">
+              <div>
+                <h4 style="font-size: 2rem; font-family: var(--font-display); color: var(--color-accent-gold-dark);">72 Hrs</h4>
+                <p style="font-size: 0.82rem; text-transform: uppercase; color: var(--color-muted);">Beechwood Tumbling</p>
+              </div>
+              <div>
+                <h4 style="font-size: 2rem; font-family: var(--font-display); color: var(--color-accent-gold-dark);">0.02 mm</h4>
+                <p style="font-size: 0.82rem; text-transform: uppercase; color: var(--color-muted);">Hinge Tolerance</p>
+              </div>
+              <div>
+                <h4 style="font-size: 2rem; font-family: var(--font-display); color: var(--color-accent-gold-dark);">100%</h4>
+                <p style="font-size: 0.82rem; text-transform: uppercase; color: var(--color-muted);">Hand Inspected</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: OUR DESIGN APPROACH -->
+    <section class="section-spacing" style="background-color: var(--color-bg-dark); color: #fff;">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow" style="color: var(--color-accent-gold);">Methodology</span>
+          <h2 style="color: #fff;">Mathematical Proportions</h2>
+          <p style="color: var(--color-muted-light);">How our design atelier calculates angles, silhouettes, and shadow projection.</p>
+        </div>
+        <div class="features-grid reveal-parent">
+          <div class="feature-box stagger-item" style="background: var(--color-bg-dark-card); border-color: var(--color-border-dark);">
+            <h3 style="color: #fff;">The Golden Ratio</h3>
+            <p style="color: var(--color-muted-light);">Lens width to bridge ratio calculated according to classical proportion metrics for universal facial balance.</p>
+          </div>
+          <div class="feature-box stagger-item" style="background: var(--color-bg-dark-card); border-color: var(--color-border-dark);">
+            <h3 style="color: #fff;">Beveled Edges</h3>
+            <p style="color: var(--color-muted-light);">45-degree hand-chamfered browlines reflect ambient light without casting harsh shadows under the eyebrows.</p>
+          </div>
+          <div class="feature-box stagger-item" style="background: var(--color-bg-dark-card); border-color: var(--color-border-dark);">
+            <h3 style="color: #fff;">Integrated Core Wire</h3>
+            <p style="color: var(--color-muted-light);">Bespoke internal brass reinforcement featuring custom guilloché patterning visible through translucent acetates.</p>
+          </div>
+          <div class="feature-box stagger-item" style="background: var(--color-bg-dark-card); border-color: var(--color-border-dark);">
+            <h3 style="color: #fff;">Counterbalanced Tips</h3>
+            <p style="color: var(--color-muted-light);">Slightly thickened acetate paddles behind the ears to distribute mass backwards away from the nasal bridge.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: MATERIALS & INNOVATION -->
+    <section class="section-spacing">
+      <div class="container">
+        <div class="editorial-grid">
+          <div class="editorial-content reveal">
+            <span class="eyebrow">Noble Metallurgy & Bio-Resins</span>
+            <h2>Materials Without Compromise</h2>
+            <p>
+              We procure materials strictly from heritage mills with transparent provenance. Our titanium is sourced from Fukui Prefecture, renowned since the late 19th century for developing surgical-grade cold-forged metals.
+            </p>
+            <p>
+              Our bio-acetates are formulated by Mazzucchelli 1849 in Castiglione Olona, Italy. By eliminating diethyl phthalate plasticizers and substituting organic plant-based binders, our frames achieve hypoallergenic purity and biodegradable sustainability.
+            </p>
+            <div style="margin-top: 2rem;">
+              <a href="collections.html" class="btn btn-primary">Experience The Collection</a>
+            </div>
+          </div>
+          <div class="editorial-images reveal">
+            <img src="./images/about/materials.webp" alt="Mazzucchelli Bio-Acetate Blocks" class="editorial-img-main" style="width: 100%;" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: OUR TEAM OR BRAND EXPERTISE -->
+    <section class="section-spacing" style="background-color: var(--color-bg-card-alt);">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">The Leadership & Ateliers</span>
+          <h2>Masters of the Craft</h2>
+          <p>Meet the visionaries guiding STACKLY’s frame architecture and optical innovations.</p>
+        </div>
+        <div class="category-grid reveal-parent">
+          <div class="category-card stagger-item" style="height: 380px;">
+            <img src="./images/about/team-1.webp" alt="Armand Vance" class="category-card-bg" loading="lazy" />
+            <div class="category-card-content">
+              <span class="category-card-count">Co-Founder & Creative Director</span>
+              <h3 class="category-card-title">Armand Vance</h3>
+              <p style="font-size: 0.85rem; color: var(--color-muted-light);">Former architectural principal with 18 years in sculptural product design.</p>
+            </div>
+          </div>
+          <div class="category-card stagger-item" style="height: 380px;">
+            <img src="./images/about/team-2.webp" alt="Dr. Vivienne Roux" class="category-card-bg" loading="lazy" />
+            <div class="category-card-content">
+              <span class="category-card-count">Head of Optical Sciences</span>
+              <h3 class="category-card-title">Dr. Vivienne Roux</h3>
+              <p style="font-size: 0.85rem; color: var(--color-muted-light);">Master Optometrist specializing in high-index mineral lens calibration.</p>
+            </div>
+          </div>
+          <div class="category-card stagger-item" style="height: 380px;">
+            <img src="./images/about/team-3.webp" alt="Takashi Mori" class="category-card-bg" loading="lazy" />
+            <div class="category-card-content">
+              <span class="category-card-count">Master Metallurgist, Sabae</span>
+              <h3 class="category-card-title">Takashi Mori</h3>
+              <p style="font-size: 0.85rem; color: var(--color-muted-light);">Third-generation titanium smith overseeing cold-forge hinge development.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: CUSTOMER EXPERIENCE & TESTIMONIALS -->
+    <section class="section-spacing">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Client Perspectives</span>
+          <h2>The Private Client Experience</h2>
+          <p>What our clients experience when entering the world of STACKLY Haute Optique.</p>
+        </div>
+        <div class="testimonials-grid reveal-parent">
+          <div class="testimonial-card stagger-item">
+            <div>
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-quote">
+                "Receiving my STACKLY frame was an unboxing experience reminiscent of a Patek Philippe timepiece. Every contour feels intentional."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-author-info">
+                <h4>Lord Charles Sterling</h4>
+                <p>Private Collector, London</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card stagger-item">
+            <div>
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-quote">
+                "The digital fitting concierge nailed my temple measurements flawlessly. My optometrist in Berlin was stunned by the hinge tolerance."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-author-info">
+                <h4>Marlena Becker</h4>
+                <p>Gallery Curator, Berlin</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card stagger-item">
+            <div>
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-quote">
+                "I wear the Lucent Clear Optical daily. People consistently stop to ask where the frame was made. True conversation pieces."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-author-info">
+                <h4>David Chen</h4>
+                <p>Architect, Singapore</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: CTA & FOOTER -->
+    <section class="section-spacing" style="background-color: var(--color-bg-card-alt); text-align: center;">
+      <div class="container reveal">
+        <span class="eyebrow">Begin Your Journey</span>
+        <h2 style="font-size: clamp(2.2rem, 4vw, 3.2rem); margin-bottom: 1.2rem;">Experience Architectural Eyewear</h2>
+        <p style="max-width: 600px; margin: 0 auto 2.2rem; color: var(--color-muted);">
+          Explore our complete catalogue of sixteen handcrafted silhouettes, available for immediate delivery worldwide.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="collections.html" class="btn btn-primary">Browse All Collections</a>
+          <a href="contact.html" class="btn btn-outline">Visit Our Atelier</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Luxury Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html">
+            <img src="./images/logo-dark.webp" alt="STACKLY Logo" class="footer-logo-img" />
+          </a>
+          <p>STACKLY Haute Optique Maison. Handcrafted frames engineered with Japanese beta-titanium and Italian bio-acetate.</p>
+          <div class="footer-socials">
+            <a href="404.html" class="social-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path></svg></a>
+            <a href="404.html" class="social-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+            <a href="404.html" class="social-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="2" x2="12" y2="22"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></a>
+            <a href="404.html" class="social-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Atelier</h4>
+          <div class="footer-links">
+            <a href="collections.html">All Eyewear</a>
+            <a href="collections.html">Sunglasses</a>
+            <a href="collections.html">Optical Frames</a>
+            <a href="about.html">Craftsmanship</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <div class="footer-links">
+            <a href="about.html">Our Heritage</a>
+            <a href="journal.html">The Monograph</a>
+            <a href="services.html">Consultations</a>
+            <a href="contact.html">Atelier Locator</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Client Portal</h4>
+          <div class="footer-links">
+            <a href="login.html">Sign In</a>
+            <a href="register.html">Create Account</a>
+            <a href="user-dashboard.html">My Orders</a>
+            <a href="user-dashboard.html">Wishlist</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Atelier Dispatch</h4>
+          <div class="footer-newsletter">
+            <p>Subscribe for seasonal release announcements.</p>
+            <form class="newsletter-form-inline" onsubmit="window.STACKLY_MAIN.handleNewsletterSubmit(event)">
+              <input type="email" placeholder="Your email address" required />
+              <button type="submit">Join</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 STACKLY Haute Optique Maison. All rights reserved.</div>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Protocol</a>
+          <a href="404.html">Terms of Atelier</a>
+          <a href="404.html">Optical Warranty</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

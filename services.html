@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services & Atelier Concierge — STACKLY Haute Optique</title>
+  <meta name="description" content="Discover STACKLY's bespoke optical services: private consultations, digital face-shape frame styling, progressive lens calibration, and ultrasonic frame care." />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div id="page-loader" class="page-loader">
+    <div class="loader-spinner"></div>
+    <span class="loader-text">STACKLY · ATELIER</span>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="navbar">
+      <a href="index.html" class="nav-logo">
+        <img src="./images/logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" />
+      </a>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="collections.html" class="nav-link">Collections</a>
+        <a href="services.html" class="nav-link active">Services</a>
+        <a href="journal.html" class="nav-link">Journal</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- <button class="nav-action-btn" onclick="window.STACKLY_MAIN.openSearchModal()" aria-label="Search Eyewear">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button> -->
+
+        <!-- <a href="user-dashboard.html" class="nav-action-btn" aria-label="View Saved Wishlist">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="badge-count wishlist-count-badge" style="display: none;">0</span>
+        </a> -->
+
+        <button class="nav-action-btn" onclick="window.STACKLY_CART.openCartDrawer()" aria-label="Open Shopping Bag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="badge-count cart-count-badge" style="display: none;">0</span>
+        </button>
+
+        <a href="login.html" class="nav-login-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          Sign In
+        </a>
+
+        <button id="hamburger-btn" class="hamburger" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-nav" class="mobile-nav">
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="collections.html" class="mobile-nav-link">Collections</a>
+      <a href="services.html" class="mobile-nav-link active">Services</a>
+      <a href="journal.html" class="mobile-nav-link">Journal</a>
+      <a href="about.html" class="mobile-nav-link">About Atelier</a>
+      <a href="contact.html" class="mobile-nav-link">Contact & Atelier</a>
+      <a href="user-dashboard.html" class="mobile-nav-link">User Dashboard</a>
+      <a href="admin-dashboard.html" class="mobile-nav-link">Admin Dashboard</a>
+    </div>
+    <div class="mobile-nav-footer">
+      <a href="login.html" class="btn btn-primary nav-login-btn">Sign In / Portal</a>
+      <p style="font-size: 0.8rem; color: var(--color-muted); text-align: center;">STACKLY Haute Optique · Est. 2024</p>
+    </div>
+  </div>
+
+  <div id="nav-backdrop" class="nav-backdrop"></div>
+
+  <!-- Cart Drawer -->
+  <div id="cart-drawer" class="cart-drawer">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">Shopping Bag</div>
+      <button class="cart-drawer-close" onclick="window.STACKLY_CART.closeCartDrawer()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <div id="cart-drawer-items" class="cart-drawer-items"></div>
+    <div id="cart-drawer-footer" class="cart-drawer-footer">
+      <div class="cart-total-row"><span>Total</span><span id="cart-drawer-total">$0</span></div>
+      <button class="btn btn-primary" onclick="window.STACKLY_CART.openCheckoutDemo()">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- Search Modal -->
+  <div id="search-modal" class="search-modal">
+    <div class="search-modal-container">
+      <button class="search-modal-close" onclick="window.STACKLY_MAIN.closeSearchModal()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <span class="eyebrow">Discover Haute Optique</span>
+      <div class="search-input-group">
+        <input type="text" id="global-search-input" class="search-input" placeholder="Search by frame silhouette..." />
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+
+  <!-- Quick View Modal -->
+  <div id="quickview-modal" class="quickview-modal">
+    <div class="quickview-content">
+      <button class="quickview-close" onclick="window.STACKLY_MAIN.closeQuickView()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div id="quickview-modal-body" style="display: contents;"></div>
+    </div>
+  </div>
+
+  <main>
+    <!-- SECTION 1: SERVICES HERO -->
+    <section class="page-hero">
+      <img src="./images/services/services-hero.webp" alt="STACKLY Optical Fitting Suite" class="page-hero-bg" />
+      <div class="container">
+        <div class="page-hero-content reveal">
+          <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <span>Atelier Services</span>
+          </div>
+          <span class="eyebrow">Atelier Concierge & Optique</span>
+          <h1>White-Glove Optical Services</h1>
+          <p>
+            From private video face-mapping to bespoke Zeiss progressive lens fittings, experience the elevated care of a traditional European optical maison.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: EYEWEAR CONSULTATION -->
+    <section class="section-spacing">
+      <div class="container">
+        <div class="editorial-grid">
+          <div class="editorial-content reveal">
+            <span class="eyebrow">Service 01 · Private Session</span>
+            <h2>One-on-One Optical Consultation</h2>
+            <p>
+              Choosing eyewear is an intimate architectural endeavor. Our certified opticians conduct comprehensive 45-minute virtual or private salon consultations to understand your visual routine, lighting environments, and aesthetic aspirations.
+            </p>
+            <p>
+              We evaluate nasal bridge angles, pupillary distance, and cheekbone prominence to shortlist frames that harmonize seamlessly with your personal style.
+            </p>
+            <div style="margin-top: 1.8rem;">
+              <a href="contact.html" class="btn btn-primary">Book Consultation Appointment</a>
+            </div>
+          </div>
+          <div class="editorial-images reveal">
+            <img src="./images/services/consultation.webp" alt="STACKLY Private Optical Consultation" class="editorial-img-main" style="width: 100%;" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: FRAME STYLING ASSISTANCE -->
+    <section class="section-spacing" style="background-color: var(--color-bg-card-alt);">
+      <div class="container">
+        <div class="editorial-grid" style="grid-template-columns: 1.15fr 1fr;">
+          <div class="editorial-images reveal">
+            <img src="./images/services/frame-styling.webp" alt="Digital Face-Mapping Frame Styling" class="editorial-img-main" style="width: 100%;" loading="lazy" />
+          </div>
+          <div class="editorial-content reveal">
+            <span class="eyebrow">Service 02 · Morphological Analysis</span>
+            <h2>Digital Frame Styling & Face Mapping</h2>
+            <p>
+              Utilizing high-precision digital photogrammetry, our stylists map sixty-eight cranial anatomical points. We calculate whether your face requires an upward-swept browline, an architectural polygon, or a low-bridge keyhole design.
+            </p>
+            <ul style="list-style: none; margin: 1.5rem 0; display: flex; flex-direction: column; gap: 0.8rem;">
+              <li style="display: flex; gap: 0.8rem; align-items: center; font-size: 0.95rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-accent-gold-dark);"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Oval, round, square, and diamond silhouette harmonizing
+              </li>
+              <li style="display: flex; gap: 0.8rem; align-items: center; font-size: 0.95rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-accent-gold-dark);"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Complexion analysis for acetate palette coordination
+              </li>
+              <li style="display: flex; gap: 0.8rem; align-items: center; font-size: 0.95rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-accent-gold-dark);"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Digital try-on lookbook prepared within 24 hours
+              </li>
+            </ul>
+            <a href="contact.html" class="btn btn-outline">Request Digital Lookbook</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: LENS SELECTION GUIDANCE -->
+    <section class="section-spacing">
+      <div class="container">
+        <div class="editorial-grid">
+          <div class="editorial-content reveal">
+            <span class="eyebrow">Service 03 · Optical Sciences</span>
+            <h2>Precision Lens Selection Guidance</h2>
+            <p>
+              A frame is only as magnificent as the clarity it yields. We partner with world-renowned German optics laboratories to offer bespoke high-index 1.67 and 1.74 ultra-thin mineral glass and organic CR-39 lenses.
+            </p>
+            <p>
+              Whether you require blue-light harmonic filtering for intense studio monitor exposure, drive-safe polarizing filters, or photochromic transitions, our optical team formulates the exact prescription stack.
+            </p>
+            <div style="margin-top: 1.8rem;">
+              <a href="collections.html" class="btn btn-primary">Explore Optical Frames</a>
+            </div>
+          </div>
+          <div class="editorial-images reveal">
+            <img src="./images/services/lens-guidance.webp" alt="High-Index Optical Lens Calibration" class="editorial-img-main" style="width: 100%;" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: PRESCRIPTION EYEWEAR INFORMATION -->
+    <section class="section-spacing" style="background-color: var(--color-bg-dark); color: #fff;">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow" style="color: var(--color-accent-gold);">Prescription Protocol</span>
+          <h2 style="color: #fff;">How We Fulfill Your Prescription</h2>
+          <p style="color: var(--color-muted-light);">Three simple, elegant steps to receiving your custom prescription STACKLY eyewear.</p>
+        </div>
+        <div class="features-grid reveal-parent">
+          <div class="feature-box stagger-item" style="background: var(--color-bg-dark-card); border-color: var(--color-border-dark);">
+            <div class="feature-icon-wrapper" style="background: rgba(197, 160, 112, 0.15);">01</div>
+            <h3 style="color: #fff;">Select Your Frame</h3>
+            <p style="color: var(--color-muted-light);">Choose any optical or sunglass silhouette from our collection archive.</p>
+          </div>
+          <div class="feature-box stagger-item" style="background: var(--color-bg-dark-card); border-color: var(--color-border-dark);">
+            <div class="feature-icon-wrapper" style="background: rgba(197, 160, 112, 0.15);">02</div>
+            <h3 style="color: #fff;">Submit Prescription</h3>
+            <p style="color: var(--color-muted-light);">Upload your optometrist Rx or email it securely to our optical laboratory desk.</p>
+          </div>
+          <div class="feature-box stagger-item" style="background: var(--color-bg-dark-card); border-color: var(--color-border-dark);">
+            <div class="feature-icon-wrapper" style="background: rgba(197, 160, 112, 0.15);">03</div>
+            <h3 style="color: #fff;">Atelier Fitting</h3>
+            <p style="color: var(--color-muted-light);">Lenses are custom-surfaced, edged, hand-mounted, and shipped within 5 business days.</p>
+          </div>
+          <div class="feature-box stagger-item" style="background: var(--color-bg-dark-card); border-color: var(--color-border-dark);">
+            <div class="feature-icon-wrapper" style="background: rgba(197, 160, 112, 0.15);">04</div>
+            <h3 style="color: #fff;">Lifetime Guarantee</h3>
+            <p style="color: var(--color-muted-light);">Includes a 30-day non-adaptation lens replacement guarantee and free realignments.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: PERSONALISED SHOPPING -->
+    <section class="section-spacing">
+      <div class="container">
+        <div class="editorial-grid" style="grid-template-columns: 1.15fr 1fr;">
+          <div class="editorial-images reveal">
+            <img src="./images/services/personal-shopping.webp" alt="VIP Bespoke Eyewear Shopping Experience" class="editorial-img-main" style="width: 100%;" loading="lazy" />
+          </div>
+          <div class="editorial-content reveal">
+            <span class="eyebrow">Service 04 · Private Clients</span>
+            <h2>VIP Personal Shopping & Trunk Shows</h2>
+            <p>
+              For patrons seeking rare collector pieces or corporate gifting suites, STACKLY provides bespoke private concierge service. We dispatch curated sample trunks of up to six frames directly to your residence or private office for a 7-day home fitting trial.
+            </p>
+            <div style="margin-top: 1.8rem;">
+              <a href="contact.html" class="btn btn-primary">Inquire About Home Trial Suite</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: PRODUCT CARE GUIDANCE -->
+    <section class="section-spacing" style="background-color: var(--color-bg-card-alt);">
+      <div class="container">
+        <div class="editorial-grid">
+          <div class="editorial-content reveal">
+            <span class="eyebrow">Service 05 · Longevity & Restoration</span>
+            <h2>Atelier Care, Polishing & Ultrasonic Cleansing</h2>
+            <p>
+              Like fine chronometers, luxury eyewear requires occasional care to maintain its structural poise. Over years of wear, skin lipids can gently dry acetate surface moisture.
+            </p>
+            <p>
+              We provide complimentary lifetime ultrasonic cleaning, Japanese hinge screw recalibration, and re-polishing at any of our flagship salons. Your frames will return with factory-fresh luster and hinge resistance.
+            </p>
+            <div style="display: flex; gap: 1rem; margin-top: 1.8rem; flex-wrap: wrap;">
+              <a href="contact.html" class="btn btn-outline">Send Frames For Reconditioning</a>
+              <a href="journal.html" class="btn btn-text">Read Our Home Care Guide &rarr;</a>
+            </div>
+          </div>
+          <div class="editorial-images reveal">
+            <img src="./images/services/product-care.webp" alt="STACKLY Frame Care and Polishing Kit" class="editorial-img-main" style="width: 100%;" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: CUSTOMER SUPPORT & CONCIERGE -->
+    <section class="section-spacing">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Dedicated Assistance</span>
+          <h2>The STACKLY Concierge Desk</h2>
+          <p>Our multilingual optical advisory team is available Monday through Saturday to assist with orders, sizing, and prescription consultations.</p>
+        </div>
+        <div class="features-grid reveal-parent">
+          <div class="feature-box stagger-item">
+            <h3>Direct Atelier Line</h3>
+            <p>Speak with a master optician regarding technical frame dimensions.<br /><strong>+1 (800) 782-2559</strong></p>
+          </div>
+          <div class="feature-box stagger-item">
+            <h3>Digital Correspondence</h3>
+            <p>Inquiries answered within 4 hours by optical specialists.<br /><strong>concierge@stackly.com</strong></p>
+          </div>
+          <div class="feature-box stagger-item">
+            <h3>Salon Fittings</h3>
+            <p>Flagship salons in New York, Paris, Tokyo, and Zurich.<br /><strong>Appointments Encouraged</strong></p>
+          </div>
+          <div class="feature-box stagger-item">
+            <h3>Secure Worldwide Returns</h3>
+            <p>30 days complimentary returns with pre-paid insured dispatch.<br /><strong>Hassle-Free Policy</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: CTA & FOOTER -->
+    <section class="section-spacing" style="background-color: var(--color-bg-card-alt); text-align: center;">
+      <div class="container reveal">
+        <span class="eyebrow">Ready for Unparalleled Clarity?</span>
+        <h2 style="font-size: clamp(2.2rem, 4vw, 3.2rem); margin-bottom: 1.2rem;">Begin Your STACKLY Optical Journey</h2>
+        <p style="max-width: 600px; margin: 0 auto 2.2rem; color: var(--color-muted);">
+          Explore our collection or schedule a private styling session with one of our certified opticians today.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="collections.html" class="btn btn-primary">Browse Eyewear Archive</a>
+          <a href="contact.html" class="btn btn-outline">Send a Message</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Luxury Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html"><img src="./images/logo-dark.webp" alt="STACKLY Logo" class="footer-logo-img" /></a>
+          <p>STACKLY Haute Optique Maison. Handcrafted frames engineered with Japanese beta-titanium and Italian bio-acetate.</p>
+          <div class="footer-socials">
+            <a href="404.html" class="social-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path></svg></a>
+            <a href="404.html" class="social-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+            <a href="404.html" class="social-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="2" x2="12" y2="22"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></a>
+            <a href="404.html" class="social-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Atelier</h4>
+          <div class="footer-links">
+            <a href="collections.html">All Eyewear</a>
+            <a href="collections.html">Sunglasses</a>
+            <a href="collections.html">Optical Frames</a>
+            <a href="about.html">Craftsmanship</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <div class="footer-links">
+            <a href="about.html">Our Heritage</a>
+            <a href="journal.html">The Monograph</a>
+            <a href="services.html">Consultations</a>
+            <a href="contact.html">Atelier Locator</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Client Portal</h4>
+          <div class="footer-links">
+            <a href="login.html">Sign In</a>
+            <a href="register.html">Create Account</a>
+            <a href="user-dashboard.html">My Orders</a>
+            <a href="user-dashboard.html">Wishlist</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Atelier Dispatch</h4>
+          <div class="footer-newsletter">
+            <p>Subscribe for seasonal release announcements.</p>
+            <form class="newsletter-form-inline" onsubmit="window.STACKLY_MAIN.handleNewsletterSubmit(event)">
+              <input type="email" placeholder="Your email address" required />
+              <button type="submit">Join</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 STACKLY Haute Optique Maison. All rights reserved.</div>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Protocol</a>
+          <a href="404.html">Terms of Atelier</a>
+          <a href="404.html">Optical Warranty</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

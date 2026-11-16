@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Executive Suite — STACKLY Haute Optique</title>
+  <meta name="description" content="STACKLY administrative control center: inventory catalog management, orders fulfillment, customer analytics, and revenue reporting." />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div id="page-loader" class="page-loader">
+    <div class="loader-spinner"></div>
+    <span class="loader-text">STACKLY · EXECUTIVE SUITE</span>
+  </div>
+
+  <div class="dashboard-layout">
+    <!-- ADMIN SIDEBAR -->
+    <aside id="admin-sidebar" class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="nav-logo">
+          <img src="./images/logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" />
+        </a>
+        <button id="admin-sidebar-close-btn" class="cart-drawer-close" style="display: none; margin-left: auto;" aria-label="Close Sidebar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <!-- Admin Profile Summary in Sidebar -->
+      <div class="sidebar-user-preview">
+        <img src="./images/dashboard/avatar-admin.webp" alt="Admin Profile Avatar" class="sidebar-avatar" style="border-color: var(--color-primary);" />
+        <div class="sidebar-user-meta">
+          <h4 class="admin-display-name">Eleanor Sterling</h4>
+          <span class="admin-display-email" style="font-size: 0.75rem; color: var(--color-muted); word-break: break-all; display: block; margin-bottom: 0.2rem; text-transform: lowercase; letter-spacing: normal;">admin@stackly.com</span>
+          <span style="color: var(--color-accent-gold-dark); font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">Maison Director</span>
+        </div>
+      </div>
+
+      <!-- 5 Main Admin Navigation Items -->
+      <nav class="sidebar-menu" aria-label="Admin Dashboard Navigation">
+        <!-- 1. Overview -->
+        <button class="sidebar-item active" data-tab="overview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Overview
+        </button>
+
+        <!-- 2. Products -->
+        <button class="sidebar-item" data-tab="products">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+          Products
+        </button>
+
+        <!-- 3. Orders -->
+        <button class="sidebar-item" data-tab="orders">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line>
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+          Orders
+        </button>
+
+        <!-- 4. Customers -->
+        <button class="sidebar-item" data-tab="customers">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          Customers
+        </button>
+
+        <!-- 5. Reports -->
+        <button class="sidebar-item" data-tab="reports">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+          Reports
+        </button>
+      </nav>
+
+      <!-- Logout & Back to Store -->
+      <div class="sidebar-footer">
+        <a href="index.html" class="sidebar-item" style="color: var(--color-primary); margin-bottom: 0.4rem;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+          View Live Storefront
+        </a>
+        <button class="sidebar-logout-btn logout-trigger-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          Sign Out of Admin
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN SCROLLABLE CONTENT -->
+    <div class="dashboard-main">
+      <!-- Admin Topbar -->
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button id="admin-sidebar-toggle" class="dashboard-sidebar-toggle" aria-label="Toggle navigation">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div class="topbar-title">
+            <h1 id="admin-topbar-title">Executive Overview</h1>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div style="font-size: 0.8rem; background: var(--color-bg-card-alt); border: 1px solid var(--color-border); padding: 0.35rem 0.8rem; border-radius: var(--radius-pill); font-weight: 600; color: var(--color-accent-gold-dark);">
+            Demo Store Mode · LocalStorage Active
+          </div>
+          <div class="topbar-profile-link" style="display: flex; align-items: center; gap: 0.75rem;">
+            <img src="./images/dashboard/avatar-admin.webp" alt="Admin" class="topbar-avatar" />
+            <div style="display: flex; flex-direction: column; text-align: right; line-height: 1.25;">
+              <span class="admin-display-name" style="font-size: 0.88rem; font-weight: 600; color: var(--color-primary);">Eleanor Sterling</span>
+              <span class="admin-display-email" style="font-size: 0.75rem; color: var(--color-accent-gold-dark); font-weight: 600;">admin@stackly.com</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Content Tabs -->
+      <div class="dashboard-content">
+
+        <!-- TAB 1: OVERVIEW -->
+        <div id="tab-overview" class="tab-pane active">
+          <!-- Executive Header Banner -->
+          <div style="background: linear-gradient(135deg, #18181B 0%, #09090B 100%); color: #fff; padding: 2.2rem 2.5rem; border-radius: var(--radius-md); margin-bottom: 2.5rem; position: relative; overflow: hidden; border: 1px solid var(--color-border-dark);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <span class="eyebrow" style="color: var(--color-accent-gold);">Maison Executive Control</span>
+                <h2 style="color: #fff; font-size: 2rem; margin-bottom: 0.5rem;">Atelier Operations Overview</h2>
+                <p style="color: var(--color-muted-light); max-width: 620px; font-size: 0.92rem; margin: 0;">
+                  Authenticated as <strong class="admin-display-name">Eleanor Sterling</strong> (<span class="admin-display-email" style="color: var(--color-accent-gold);">admin@stackly.com</span>). Global production feeds active from Sabae Titanium Workshop (Japan) and Cadore Bio-Acetate Mill (Italy).
+                </p>
+              </div>
+              <div style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
+                <button class="btn btn-gold btn-sm" onclick="STACKLY_ADMIN_DASHBOARD.openAddProductModal()">+ Add New Eyewear</button>
+                <button class="btn btn-outline btn-sm" style="color: #fff; border-color: rgba(255,255,255,0.3);" onclick="STACKLY_ADMIN_DASHBOARD.switchTab('orders')">Fulfillment Desk</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Real-Time Metrics Grid -->
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-card-header">
+                <span class="metric-label">Total Eyewear Models</span>
+                <div class="metric-icon-box">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path></svg>
+                </div>
+              </div>
+              <div id="admin-stat-products" class="metric-value">16</div>
+              <span class="metric-change positive">100% In Active Catalog</span>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-card-header">
+                <span class="metric-label">Total Orders Processed</span>
+                <div class="metric-icon-box">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path></svg>
+                </div>
+              </div>
+              <div id="admin-stat-orders" class="metric-value">48</div>
+              <span class="metric-change positive">+14% vs last month</span>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-card-header">
+                <span class="metric-label">Total Patrons / Clients</span>
+                <div class="metric-icon-box">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                </div>
+              </div>
+              <div id="admin-stat-customers" class="metric-value">136</div>
+              <span class="metric-change positive">+8 new this week</span>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-card-header">
+                <span class="metric-label">Gross Revenue Overview</span>
+                <div class="metric-icon-box">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                </div>
+              </div>
+              <div id="admin-stat-revenue" class="metric-value">$24,890</div>
+              <span class="metric-change positive">+22.4% Annual Growth</span>
+            </div>
+          </div>
+
+          <!-- Sales Chart & Popular Products Section -->
+          <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 2rem; margin-bottom: 2.5rem;">
+            <!-- CSS Sales Chart Bar Visualizer -->
+            <div class="dashboard-card" style="margin-bottom: 0;">
+              <div class="dashboard-card-header">
+                <div>
+                  <h3>Monthly Revenue Velocity</h3>
+                  <span style="font-size: 0.8rem; color: var(--color-muted);">Fiscal Year 2026 Sales Distribution</span>
+                </div>
+                <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-accent-green);">Avg. Ticket: $345</span>
+              </div>
+
+              <!-- Pure CSS/HTML Bar Chart -->
+              <div style="display: flex; align-items: flex-end; justify-content: space-between; height: 200px; padding: 1.5rem 0.5rem 0; border-bottom: 1px solid var(--color-border); gap: 1rem;">
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 0.72rem; color: var(--color-muted);">$14k</span>
+                  <div style="width: 100%; height: 80px; background: var(--color-bg-card-alt); border-radius: var(--radius-sm); border: 1px solid var(--color-border);"></div>
+                  <span style="font-size: 0.75rem; font-weight: 600;">Jun</span>
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 0.72rem; color: var(--color-muted);">$17k</span>
+                  <div style="width: 100%; height: 110px; background: var(--color-bg-card-alt); border-radius: var(--radius-sm); border: 1px solid var(--color-border);"></div>
+                  <span style="font-size: 0.75rem; font-weight: 600;">Jul</span>
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 0.72rem; color: var(--color-muted);">$19k</span>
+                  <div style="width: 100%; height: 125px; background: var(--color-bg-card-alt); border-radius: var(--radius-sm); border: 1px solid var(--color-border);"></div>
+                  <span style="font-size: 0.75rem; font-weight: 600;">Aug</span>
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 0.72rem; color: var(--color-muted);">$21k</span>
+                  <div style="width: 100%; height: 140px; background: var(--color-bg-card-alt); border-radius: var(--radius-sm); border: 1px solid var(--color-border);"></div>
+                  <span style="font-size: 0.75rem; font-weight: 600;">Sep</span>
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 0.72rem; color: var(--color-muted);">$23k</span>
+                  <div style="width: 100%; height: 160px; background: var(--color-accent-gold-dark); border-radius: var(--radius-sm);"></div>
+                  <span style="font-size: 0.75rem; font-weight: 600; color: var(--color-accent-gold-dark);">Oct</span>
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 0.72rem; color: var(--color-muted);">$25k</span>
+                  <div style="width: 100%; height: 180px; background: var(--color-primary); border-radius: var(--radius-sm);"></div>
+                  <span style="font-size: 0.75rem; font-weight: 700;">Nov</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Popular Products -->
+            <div class="dashboard-card" style="margin-bottom: 0;">
+              <div class="dashboard-card-header">
+                <h3>Top Performing Silhouettes</h3>
+                <button class="btn btn-text" onclick="STACKLY_ADMIN_DASHBOARD.switchTab('products')">View All</button>
+              </div>
+              <div id="admin-popular-products"></div>
+            </div>
+          </div>
+
+          <!-- Pending Optical Prescription Verifications Queue -->
+          <div class="dashboard-card" style="margin-bottom: 2.5rem;">
+            <div class="dashboard-card-header">
+              <div>
+                <h3>Pending Prescription Verifications</h3>
+                <p style="font-size: 0.85rem; color: var(--color-muted);">Patient scripts awaiting master optometrist sign-off before surfacing at Zeiss laboratories.</p>
+              </div>
+              <span class="badge" style="background: rgba(217, 119, 6, 0.12); color: #D97706; padding: 0.25rem 0.6rem; border-radius: var(--radius-pill); font-weight: 700; font-size: 0.75rem;">3 Awaiting Review</span>
+            </div>
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Order Ref</th>
+                    <th>Patron Name</th>
+                    <th>Client Email</th>
+                    <th>Uploaded Parameters</th>
+                    <th>Submitting Clinic</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>#STK-829104</strong></td>
+                    <td>Julian Vance</td>
+                    <td>julian.vance@couture.com</td>
+                    <td>OD -1.75 / OS -2.00 / PD 63.5</td>
+                    <td>New York Eye Infirmary</td>
+                    <td>
+                      <button class="btn btn-primary btn-sm" onclick="window.STACKLY_MAIN.showToast('Prescription for #STK-829104 approved for laboratory surfacing.', 'success')">Approve Rx</button>
+                      <button class="btn btn-outline btn-sm" onclick="window.STACKLY_MAIN.showToast('Flagged for optical clarification.', 'info')">Request Details</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>#STK-819033</strong></td>
+                    <td>Genevieve Laurent</td>
+                    <td>genevieve.l@atelier.fr</td>
+                    <td>OD +1.25 / OS +1.00 / ADD +1.75 (Progressive)</td>
+                    <td>Centre Ophtalmologique de Paris</td>
+                    <td>
+                      <button class="btn btn-primary btn-sm" onclick="window.STACKLY_MAIN.showToast('Prescription for #STK-819033 approved.', 'success')">Approve Rx</button>
+                      <button class="btn btn-outline btn-sm" onclick="window.STACKLY_MAIN.showToast('Flagged for optical clarification.', 'info')">Request Details</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>#STK-804192</strong></td>
+                    <td>Sora Takahashi</td>
+                    <td>sora.takahashi@tokyo.jp</td>
+                    <td>OD -3.50 / OS -3.25 / PD 64.0 (Zeiss 1.74)</td>
+                    <td>Ginza Eye Specialists Clinic</td>
+                    <td>
+                      <button class="btn btn-primary btn-sm" onclick="window.STACKLY_MAIN.showToast('Prescription for #STK-804192 approved.', 'success')">Approve Rx</button>
+                      <button class="btn btn-outline btn-sm" onclick="window.STACKLY_MAIN.showToast('Flagged for optical clarification.', 'info')">Request Details</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Operations Stream & Atelier Production Split -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+            <!-- Real-time Live Operations Feed -->
+            <div class="dashboard-card" style="margin-bottom: 0;">
+              <div class="dashboard-card-header">
+                <h3>Live Atelier Operations Stream</h3>
+                <span style="font-size: 0.8rem; color: var(--color-accent-green); font-weight: 700;">● System Active</span>
+              </div>
+              <div class="activity-feed-list">
+                <div class="activity-feed-item">
+                  <div class="activity-dot green"></div>
+                  <div class="activity-meta">
+                    <strong>New Order Placed: $655.00</strong>
+                    <p>Order #STK-829104 by Julian Vance via Express Checkout</p>
+                  </div>
+                  <span class="activity-time">5m ago</span>
+                </div>
+                <div class="activity-feed-item">
+                  <div class="activity-dot gold"></div>
+                  <div class="activity-meta">
+                    <strong>Low Inventory Alert: Geneva Rimless</strong>
+                    <p>Stock count decreased to 4 units (Threshold: 5 units)</p>
+                  </div>
+                  <span class="activity-time">24m ago</span>
+                </div>
+                <div class="activity-feed-item">
+                  <div class="activity-dot dark"></div>
+                  <div class="activity-meta">
+                    <strong>VIP Patron Registered</strong>
+                    <p>Clara Beaumont (London) created an Atelier account</p>
+                  </div>
+                  <span class="activity-time">1h ago</span>
+                </div>
+                <div class="activity-feed-item">
+                  <div class="activity-dot green"></div>
+                  <div class="activity-meta">
+                    <strong>DHL Express Pickup Completed</strong>
+                    <p>Batch of 8 bespoke eyewear orders dispatched from Cadore</p>
+                  </div>
+                  <span class="activity-time">3h ago</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Global Workshop Capacities -->
+            <div class="dashboard-card" style="margin-bottom: 0;">
+              <div class="dashboard-card-header">
+                <h3>Global Atelier Production Capacities</h3>
+                <span style="font-size: 0.8rem; color: var(--color-muted);">Live Workshop Feeds</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 0.35rem;">
+                    <strong>Cadore Bio-Acetate Mill (Italy)</strong>
+                    <span style="color: var(--color-accent-gold-dark); font-weight: 700;">94% Capacity (320 Frames/mo)</span>
+                  </div>
+                  <div style="width: 100%; height: 8px; background: var(--color-bg-card-alt); border-radius: 4px; overflow: hidden;">
+                    <div style="width: 94%; height: 100%; background: var(--color-accent-gold-dark);"></div>
+                  </div>
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 0.35rem;">
+                    <strong>Sabae Beta-Titanium Forge (Japan)</strong>
+                    <span style="color: var(--color-primary); font-weight: 700;">88% Capacity (180 Frames/mo)</span>
+                  </div>
+                  <div style="width: 100%; height: 8px; background: var(--color-bg-card-alt); border-radius: 4px; overflow: hidden;">
+                    <div style="width: 88%; height: 100%; background: var(--color-primary);"></div>
+                  </div>
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 0.35rem;">
+                    <strong>New York Inspection & Lens Surfacing Suite</strong>
+                    <span style="color: var(--color-accent-green); font-weight: 700;">100% Operational (98 Units/day)</span>
+                  </div>
+                  <div style="width: 100%; height: 8px; background: var(--color-bg-card-alt); border-radius: 4px; overflow: hidden;">
+                    <div style="width: 100%; height: 100%; background: var(--color-accent-green);"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: PRODUCTS (CRUD Table) -->
+        <div id="tab-products" class="tab-pane">
+          <!-- Inventory Health Metric Summary -->
+          <div class="metrics-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 2rem;">
+            <div class="metric-card">
+              <span class="metric-label">Total Catalog SKUs</span>
+              <div class="metric-value">16</div>
+              <span class="metric-change positive">All Handcrafted</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-label">Inventory Valuation</span>
+              <div class="metric-value">$184,200</div>
+              <span class="metric-change positive">At Retail Value</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-label">Low Stock Alerts</span>
+              <div class="metric-value" style="color: #D97706;">02</div>
+              <span class="metric-change neutral">&lt; 5 Units Remaining</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-label">Workshop In-Production</span>
+              <div class="metric-value">48</div>
+              <span class="metric-change positive">Replenishment In Flight</span>
+            </div>
+          </div>
+
+          <div class="dashboard-card">
+            <div class="dashboard-card-header" style="flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <h3>Inventory Catalog Management</h3>
+                <p style="color: var(--color-muted); font-size: 0.88rem;">Add, modify, or archive handcrafted eyewear frames in the store catalog.</p>
+              </div>
+              <button class="btn btn-primary" onclick="STACKLY_ADMIN_DASHBOARD.openAddProductModal()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                Add New Eyewear
+              </button>
+            </div>
+
+            <!-- Search and Filter Bar -->
+            <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+              <div style="flex: 1; min-width: 240px;">
+                <input type="text" id="admin-product-search" class="form-control" placeholder="Search catalog by silhouette name or category..." oninput="STACKLY_ADMIN_DASHBOARD.renderAdminProductsTable(this.value, document.getElementById('admin-prod-cat-filter').value)" />
+              </div>
+              <div>
+                <select id="admin-prod-cat-filter" class="auth-select" style="padding-left: 1rem; width: auto;" onchange="STACKLY_ADMIN_DASHBOARD.renderAdminProductsTable(document.getElementById('admin-product-search').value, this.value)">
+                  <option value="all">All Categories</option>
+                  <option value="Sunglasses">Sunglasses</option>
+                  <option value="Optical Frames">Optical Frames</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Eyewear Silhouette</th>
+                    <th>Category</th>
+                    <th>Retail Price</th>
+                    <th>Stock Units</th>
+                    <th>Availability</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-products-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Supplier Replenishment Recommendation Banner -->
+          <div class="dashboard-card" style="margin-top: 2rem;">
+            <div class="dashboard-card-header">
+              <div>
+                <h3>Workshop Raw Material & Component Orders</h3>
+                <p style="font-size: 0.85rem; color: var(--color-muted);">Automated replenishment recommendations from Japanese titanium forges and Italian acetate suppliers.</p>
+              </div>
+            </div>
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Supplier Partner</th>
+                    <th>Material Classification</th>
+                    <th>Target Frame Silhouettes</th>
+                    <th>Batch Quantity</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Mazzucchelli 1849 (Varese, Italy)</strong></td>
+                    <td>Aged 10mm Bio-Cellulose Tortoise Slabs</td>
+                    <td>Aura, Solares, Riviera</td>
+                    <td>250 kg</td>
+                    <td><span class="status-badge delivered">Scheduled Dispatch</span></td>
+                    <td><button class="btn btn-outline btn-sm" onclick="window.STACKLY_MAIN.showToast('Supplier purchase order confirmed.', 'success')">Confirm PO</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Sabae Precision Metallurgy (Fukui, Japan)</strong></td>
+                    <td>Cold-Forged Beta-Titanium Temple Wires</td>
+                    <td>Komorebi, Vanguard, Geneva</td>
+                    <td>400 Temples</td>
+                    <td><span class="status-badge processing">In Production</span></td>
+                    <td><button class="btn btn-outline btn-sm" onclick="window.STACKLY_MAIN.showToast('Supplier purchase order confirmed.', 'success')">Confirm PO</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: ORDERS -->
+        <div id="tab-orders" class="tab-pane">
+          <!-- Order Fulfillment KPI summary -->
+          <div class="metrics-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 2rem;">
+            <div class="metric-card">
+              <span class="metric-label">Active Orders in Fulfillment</span>
+              <div class="metric-value">12</div>
+              <span class="metric-change positive">4 In Lab Surfacing</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-label">Dispatched Today via DHL</span>
+              <div class="metric-value">08</div>
+              <span class="metric-change positive">Express Air Insured</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-label">Avg. Fulfillment Transit</span>
+              <div class="metric-value">2.4 Days</div>
+              <span class="metric-change positive">Industry leading</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-label">Delivery Precision Rate</span>
+              <div class="metric-value">99.4%</div>
+              <span class="metric-change positive">Zero lost packages</span>
+            </div>
+          </div>
+
+          <div class="dashboard-card">
+            <div class="dashboard-card-header">
+              <div>
+                <h3>Orders & Prescription Fulfillment</h3>
+                <p style="color: var(--color-muted); font-size: 0.88rem;">Update logistics statuses for dispatched and delivered client eyewear.</p>
+              </div>
+            </div>
+
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Order Ref</th>
+                    <th>Client Coordinates</th>
+                    <th>Silhouettes</th>
+                    <th>Amount</th>
+                    <th>Placement Date</th>
+                    <th>Fulfillment Status</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-orders-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: CUSTOMERS -->
+        <div id="tab-customers" class="tab-pane">
+          <!-- Customer Metrics Summary -->
+          <div class="metrics-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 2rem;">
+            <div class="metric-card">
+              <span class="metric-label">Registered Patrons</span>
+              <div class="metric-value">136</div>
+              <span class="metric-change positive">+8 this month</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-label">Repeat Order Rate</span>
+              <div class="metric-value">42.8%</div>
+              <span class="metric-change positive">High loyalty index</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-label">VIP Connoisseur Tier</span>
+              <div class="metric-value">18</div>
+              <span class="metric-change positive">High Net Worth</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-label">Average Patron LTV</span>
+              <div class="metric-value">$840</div>
+              <span class="metric-change positive">+12% ARR</span>
+            </div>
+          </div>
+
+          <div class="dashboard-card">
+            <div class="dashboard-card-header" style="flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <h3>Patron & Client Directory</h3>
+                <p style="color: var(--color-muted); font-size: 0.88rem;">Registered connoisseurs, optical prescription profiles, and lifetime spend.</p>
+              </div>
+              <div style="min-width: 240px;">
+                <input type="text" class="form-control" placeholder="Search customer directory..." oninput="STACKLY_ADMIN_DASHBOARD.renderAdminCustomersTable(this.value)" />
+              </div>
+            </div>
+
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Client ID</th>
+                    <th>Full Name</th>
+                    <th>Email Address</th>
+                    <th>Registration Date</th>
+                    <th>Lifetime Volume</th>
+                    <th>Orders Total</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-customers-table-body"></tbody>
+              </table>
+            </div>
+
+            <!-- Customer Pagination -->
+            <div id="admin-customers-pagination" style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--color-border);"></div>
+          </div>
+
+          <!-- VIP Client Optical Styling Journal -->
+          <div class="dashboard-card" style="margin-top: 2rem;">
+            <div class="dashboard-card-header">
+              <div>
+                <h3>VIP Client Optical Notes & Fitting Calibration</h3>
+                <p style="font-size: 0.85rem; color: var(--color-muted);">Private notes maintained by optical masters during Madison Avenue consultations.</p>
+              </div>
+            </div>
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Patron Name</th>
+                    <th>Facial Silhouette Profile</th>
+                    <th>Bridge Fit Calibration</th>
+                    <th>Prescribed Lens Coatings</th>
+                    <th>Favorite Material</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Julian Vance</strong></td>
+                    <td>Structured Oval / High Cheekbones</td>
+                    <td>Keyhole Bridge 21mm (Balanced weight)</td>
+                    <td>Zeiss DuraVision Platinum AR (1.67 Index)</td>
+                    <td>Japanese Beta-Titanium Wire</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Genevieve Laurent</strong></td>
+                    <td>Heart-Shaped / Delicate Browline</td>
+                    <td>Beveled Cat-Eye Arch 18mm</td>
+                    <td>Smokey Amber Gradient UV400</td>
+                    <td>Mazzucchelli 10mm Bio-Acetate</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Sora Takahashi</strong></td>
+                    <td>Angular Square / Prominent Jawline</td>
+                    <td>Architectural Round Wire 20mm</td>
+                    <td>Ultra-Clear Aspheric 1.74 High Index</td>
+                    <td>Cold-Forged Japanese Titanium</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 5: REPORTS -->
+        <div id="tab-reports" class="tab-pane">
+          <div class="dashboard-card">
+            <div class="dashboard-card-header">
+              <div>
+                <h3>Executive Financial & Optical Analytics</h3>
+                <p style="color: var(--color-muted); font-size: 0.88rem;">Detailed performance breakdown across optical frames versus sunglasses.</p>
+              </div>
+              <div>
+                <select class="auth-select" style="padding-left: 1rem; width: auto;">
+                  <option>Current Fiscal Quarter (Q4 2026)</option>
+                  <option>Fiscal Year 2026</option>
+                  <option>All Time</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <span class="metric-label">Average Order Value (AOV)</span>
+                <div class="metric-value">$345.50</div>
+                <span class="metric-change positive">+8.2% vs benchmark</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">Prescription Conversion Rate</span>
+                <div class="metric-value">64.2%</div>
+                <span class="metric-change positive">Above luxury avg.</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">Return / Exchange Rate</span>
+                <div class="metric-value">1.8%</div>
+                <span class="metric-change positive">Industry leading</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">Gross Margin</span>
+                <div class="metric-value">78.5%</div>
+                <span class="metric-change positive">Bio-acetate direct</span>
+              </div>
+            </div>
+
+            <div style="border-top: 1px solid var(--color-border); padding-top: 1.8rem;">
+              <h4 style="font-size: 1.1rem; margin-bottom: 1rem;">Category Revenue Contribution</h4>
+              <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 0.3rem;">
+                    <span>Polarized Sunglasses (54%)</span>
+                    <strong>$13,440.00</strong>
+                  </div>
+                  <div style="width: 100%; height: 8px; background: var(--color-bg-card-alt); border-radius: 4px; overflow: hidden;">
+                    <div style="width: 54%; height: 100%; background: var(--color-accent-gold-dark);"></div>
+                  </div>
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 0.3rem;">
+                    <span>Architectural Optical Prescription Frames (46%)</span>
+                    <strong>$11,450.00</strong>
+                  </div>
+                  <div style="width: 100%; height: 8px; background: var(--color-bg-card-alt); border-radius: 4px; overflow: hidden;">
+                    <div style="width: 46%; height: 100%; background: var(--color-primary);"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Material Popularity & Regional Revenue Split -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; border-top: 1px solid var(--color-border); padding-top: 2rem;">
+              <div>
+                <h4 style="font-size: 1rem; margin-bottom: 1rem;">Frame Material Popularity</h4>
+                <div style="display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.85rem;">
+                  <div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                      <span>Japanese Beta-Titanium</span>
+                      <strong>52%</strong>
+                    </div>
+                    <div style="height: 6px; background: var(--color-bg-card-alt); border-radius: 3px; overflow: hidden;">
+                      <div style="width: 52%; height: 100%; background: var(--color-primary);"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                      <span>Mazzucchelli Bio-Acetate</span>
+                      <strong>38%</strong>
+                    </div>
+                    <div style="height: 6px; background: var(--color-bg-card-alt); border-radius: 3px; overflow: hidden;">
+                      <div style="width: 38%; height: 100%; background: var(--color-accent-gold-dark);"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                      <span>Combination Titanium & Acetate</span>
+                      <strong>10%</strong>
+                    </div>
+                    <div style="height: 6px; background: var(--color-bg-card-alt); border-radius: 3px; overflow: hidden;">
+                      <div style="width: 10%; height: 100%; background: var(--color-muted);"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h4 style="font-size: 1rem; margin-bottom: 1rem;">Global Luxury Market Demographics</h4>
+                <div style="display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.85rem;">
+                  <div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                      <span>North America (USA & Canada)</span>
+                      <strong>48%</strong>
+                    </div>
+                    <div style="height: 6px; background: var(--color-bg-card-alt); border-radius: 3px; overflow: hidden;">
+                      <div style="width: 48%; height: 100%; background: var(--color-accent-green);"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                      <span>Western Europe (UK, France, Italy)</span>
+                      <strong>32%</strong>
+                    </div>
+                    <div style="height: 6px; background: var(--color-bg-card-alt); border-radius: 3px; overflow: hidden;">
+                      <div style="width: 32%; height: 100%; background: var(--color-accent-gold);"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                      <span>Asia-Pacific (Japan, South Korea)</span>
+                      <strong>14%</strong>
+                    </div>
+                    <div style="height: 6px; background: var(--color-bg-card-alt); border-radius: 3px; overflow: hidden;">
+                      <div style="width: 14%; height: 100%; background: var(--color-secondary);"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Add / Edit Product Modal -->
+  <div id="admin-product-modal" class="admin-modal">
+    <div class="admin-modal-card">
+      <button class="cart-drawer-close" onclick="STACKLY_ADMIN_DASHBOARD.closeProductModal()" style="position: absolute; top: 1.2rem; right: 1.2rem;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <span class="eyebrow">Catalog Maintenance</span>
+      <h3 id="admin-product-modal-title" style="margin-bottom: 1.5rem;">Add New Eyewear Product</h3>
+
+      <form id="admin-product-form">
+        <input type="hidden" id="admin-prod-id" />
+        <div class="form-group">
+          <label for="admin-prod-name">Frame Silhouette Name *</label>
+          <input type="text" id="admin-prod-name" class="form-control" required placeholder="e.g. Kyoto Architectural Round" />
+        </div>
+        <div class="form-group">
+          <label for="admin-prod-category">Eyewear Category *</label>
+          <select id="admin-prod-category" class="auth-select" style="padding-left: 1rem;">
+            <option value="Sunglasses">Sunglasses</option>
+            <option value="Optical Frames">Optical Frames</option>
+          </select>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label for="admin-prod-price">Retail Price ($ USD) *</label>
+            <input type="number" id="admin-prod-price" class="form-control" required placeholder="295" min="50" step="5" />
+          </div>
+          <div class="form-group">
+            <label for="admin-prod-stock">Stock Units *</label>
+            <input type="number" id="admin-prod-stock" class="form-control" required placeholder="12" min="0" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="admin-prod-desc">Atelier Description</label>
+          <textarea id="admin-prod-desc" class="form-control" placeholder="Describe materials, hinges, and optical specifications..." style="min-height: 90px;"></textarea>
+        </div>
+        <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+          <button type="submit" class="btn btn-primary" style="flex: 1;">Save to Catalog</button>
+          <button type="button" class="btn btn-outline" onclick="STACKLY_ADMIN_DASHBOARD.closeProductModal()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/admin-dashboard.js"></script>
+</body>
+</html>
