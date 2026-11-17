@@ -311,7 +311,7 @@ const STACKLY_USER_DASHBOARD = (function () {
               </div>
               <div style="display: flex; align-items: center; gap: 0.8rem;">
                 <span class="status-badge ${order.statusClass || order.status.toLowerCase().replace(/\s+/g, '-')}">${order.status}</span>
-                <button class="btn btn-outline btn-sm" onclick="window.STACKLY_MAIN.showToast('Generating official VAT invoice PDF for #${order.orderId}...', 'info')">Invoice PDF</button>
+                <button class="btn btn-outline btn-sm" onclick="window.location.href='./404.html'">Invoice PDF</button>
               </div>
             </div>
             <div class="order-card-items" style="padding: 1.2rem 1.6rem; display: flex; flex-direction: column; gap: 1rem;">
@@ -324,7 +324,7 @@ const STACKLY_USER_DASHBOARD = (function () {
                   </div>
                   <div style="display: flex; gap: 0.6rem;">
                     <button class="btn btn-outline btn-sm" onclick="window.STACKLY_CART && window.STACKLY_CART.addToCart('${item.id}', 1)">Buy Again</button>
-                    <button class="btn btn-text btn-sm" onclick="window.STACKLY_MAIN.showToast('Opening optical adjustment ticket for ${item.name}...', 'info')">Tune-Up</button>
+                    <button class="btn btn-text btn-sm" onclick="window.location.href='./404.html'">Tune-Up</button>
                   </div>
                 </div>
               `).join('')}

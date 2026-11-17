@@ -78,14 +78,11 @@
   <!-- Mobile Nav -->
   <div id="mobile-nav" class="mobile-nav">
     <div class="mobile-nav-links">
-      <a href="index.html" class="mobile-nav-link">Home</a>
-      <a href="collections.html" class="mobile-nav-link">Collections</a>
-      <a href="services.html" class="mobile-nav-link">Services</a>
-      <a href="journal.html" class="mobile-nav-link">Journal</a>
-      <a href="about.html" class="mobile-nav-link">About Atelier</a>
-      <a href="contact.html" class="mobile-nav-link active">Contact & Atelier</a>
-      <a href="user-dashboard.html" class="mobile-nav-link">User Dashboard</a>
-      <a href="admin-dashboard.html" class="mobile-nav-link">Admin Dashboard</a>
+      <a href="index.html" class="mobile-nav-link ">Home</a>
+        <a href="collections.html" class="mobile-nav-link">Collections</a>
+        <a href="services.html" class="mobile-nav-link">Services</a>
+        <a href="journal.html" class="mobile-nav-link">Journal</a>
+        <a href="contact.html" class="mobile-nav-link active">Contact</a>
     </div>
     <div class="mobile-nav-footer">
       <a href="login.html" class="btn btn-primary nav-login-btn">Sign In / Portal</a>
@@ -106,7 +103,7 @@
     <div id="cart-drawer-items" class="cart-drawer-items"></div>
     <div id="cart-drawer-footer" class="cart-drawer-footer">
       <div class="cart-total-row"><span>Total</span><span id="cart-drawer-total">$0</span></div>
-      <button class="btn btn-primary" onclick="window.STACKLY_CART.openCheckoutDemo()">Proceed to Checkout</button>
+      <button class="btn btn-primary" onclick="window.location.href='404.html'">Proceed to Checkout</button>
     </div>
   </div>
 
@@ -206,19 +203,19 @@
             <form id="contact-form">
               <div class="form-group">
                 <label for="contact-name">Your Full Name *</label>
-                <input type="text" id="contact-name" class="form-control" placeholder="e.g. Julian Vance" required />
+                <input type="text" id="contact-name" class="form-control" placeholder="e.g. Julian Vance"  />
               </div>
               <div class="form-group">
                 <label for="contact-email">Email Address *</label>
-                <input type="email" id="contact-email" class="form-control" placeholder="e.g. julian@example.com" required />
+                <input type="email" id="contact-email" class="form-control" placeholder="e.g. julian@example.com"  />
               </div>
               <div class="form-group">
                 <label for="contact-subject">Inquiry Subject *</label>
-                <input type="text" id="contact-subject" class="form-control" placeholder="e.g. Bespoke Prescription Frame Fitting" required />
+                <input type="text" id="contact-subject" class="form-control" placeholder="e.g. Bespoke Prescription Frame Fitting"  />
               </div>
               <div class="form-group">
                 <label for="contact-message">Your Message *</label>
-                <textarea id="contact-message" class="form-control" placeholder="Please elaborate on your optical inquiry, prescription specifications, or preferred salon..." required></textarea>
+                <textarea id="contact-message" class="form-control" placeholder="Please elaborate on your optical inquiry, prescription specifications, or preferred salon..." ></textarea>
               </div>
               <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Message to Atelier</button>
             </form>
@@ -257,6 +254,33 @@
         </div>
       </div>
     </section>
+
+     <section class="map-section">
+
+    <!-- Address bar -->
+    <div class="map-address">
+        MMR Complex, Periyakollappatty, <br />
+Chinna Thirupathi, <br />
+Salem, Tamil Nadu 636008
+    </div>
+
+    <!-- Real Google Map -->
+    <div class="map-container">
+
+        <iframe
+    src="https://www.google.com/maps?q=MMR%20Complex%2C%20Chinna%20Thirupathi%2C%20near%20Chinna%20Muniyappan%20Kovil%2C%20Salem%2C%20Tamil%20Nadu%20636008&output=embed"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+
+
+    </div>
+
+</section>
 
     <!-- SECTION 5: FREQUENTLY ASKED QUESTIONS -->
     <section class="section-spacing">
@@ -373,7 +397,7 @@
           <div class="footer-newsletter">
             <p>Subscribe for seasonal release announcements.</p>
             <form class="newsletter-form-inline" onsubmit="window.STACKLY_MAIN.handleNewsletterSubmit(event)">
-              <input type="email" placeholder="Your email address" required />
+              <input type="email" placeholder="Your email address"  />
               <button type="submit">Join</button>
             </form>
           </div>

@@ -87,13 +87,10 @@
   <div id="mobile-nav" class="mobile-nav">
     <div class="mobile-nav-links">
       <a href="index.html" class="mobile-nav-link active">Home</a>
-      <a href="collections.html" class="mobile-nav-link">Collections</a>
-      <a href="services.html" class="mobile-nav-link">Services</a>
-      <a href="journal.html" class="mobile-nav-link">Journal</a>
-      <a href="about.html" class="mobile-nav-link">About Atelier</a>
-      <a href="contact.html" class="mobile-nav-link">Contact & Atelier</a>
-      <a href="user-dashboard.html" class="mobile-nav-link">User Dashboard</a>
-      <a href="admin-dashboard.html" class="mobile-nav-link">Admin Dashboard</a>
+        <a href="collections.html" class="mobile-nav-link">Collections</a>
+        <a href="services.html" class="mobile-nav-link">Services</a>
+        <a href="journal.html" class="mobile-nav-link">Journal</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
     </div>
     <div class="mobile-nav-footer">
       <a href="login.html" class="btn btn-primary nav-login-btn">
@@ -140,7 +137,7 @@
         <span>Estimated Total</span>
         <span id="cart-drawer-total">$0</span>
       </div>
-      <button class="btn btn-primary" onclick="window.STACKLY_CART.openCheckoutDemo()">Proceed to Checkout</button>
+      <button class="btn btn-primary" onclick="window.location.href='404.html'">Proceed to Checkout</button>
     </div>
   </div>
 
@@ -202,15 +199,15 @@
       <form onsubmit="window.STACKLY_CART.completeOrderDemo(event)">
         <div class="form-group">
           <label for="checkout-name">Full Recipient Name</label>
-          <input type="text" id="checkout-name" class="form-control" required value="Julian Vance" />
+          <input type="text" id="checkout-name" class="form-control"  value="Julian Vance" />
         </div>
         <div class="form-group">
           <label for="checkout-email">Confirmation Email</label>
-          <input type="email" id="checkout-email" class="form-control" required value="julian.vance@couture.com" />
+          <input type="email" id="checkout-email" class="form-control"  value="julian.vance@couture.com" />
         </div>
         <div class="form-group">
           <label for="checkout-address">Shipping Address</label>
-          <input type="text" id="checkout-address" class="form-control" required value="742 Evergreen Terrace, Suite 402, New York, NY" />
+          <input type="text" id="checkout-address" class="form-control"  value="742 Evergreen Terrace, Suite 402, New York, NY" />
         </div>
         <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-top: 1px solid var(--color-border); margin-bottom: 1.5rem; font-size: 1.15rem; font-weight: 700;">
           <span>Grand Total:</span>
@@ -661,7 +658,7 @@
             </div>
             <div>
               <form class="newsletter-form-large" onsubmit="window.STACKLY_MAIN.handleNewsletterSubmit(event)">
-                <input type="email" placeholder="Enter your email address" required />
+                <input type="email" placeholder="Enter your email address"  />
                 <button type="submit" class="btn btn-gold">Join Circle</button>
               </form>
               <p style="font-size: 0.78rem; color: var(--color-muted); margin-top: 0.8rem;">
@@ -754,7 +751,7 @@
           <div class="footer-newsletter">
             <p>Subscribe for seasonal release announcements and private fitting appointments.</p>
             <form class="newsletter-form-inline" onsubmit="window.STACKLY_MAIN.handleNewsletterSubmit(event)">
-              <input type="email" placeholder="Your email address" required />
+              <input type="email" placeholder="Your email address"  />
               <button type="submit">Join</button>
             </form>
           </div>
