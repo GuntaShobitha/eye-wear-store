@@ -43,6 +43,28 @@ const STACKLY_AUTH = (function () {
     }
   }
 
+  function showFieldError(fieldId, message) {
+    const input = document.getElementById(fieldId);
+    if (!input) return;
+    input.classList.add('is-invalid');
+    // Find or create error element near the input
+    let errorEl = input.parentElement.querySelector('.field-error');
+    if (!errorEl) {
+      errorEl = document.createElement('small');
+      errorEl.className = 'field-error';
+      input.parentElement.appendChild(errorEl);
+    }
+    errorEl.textContent = message;
+  }
+
+  function clearFieldError(fieldId) {
+    const input = document.getElementById(fieldId);
+    if (!input) return;
+    input.classList.remove('is-invalid');
+    const errorEl = input.parentElement.querySelector('.field-error');
+    if (errorEl) errorEl.textContent = '';
+  }
+
   function handleLogin(e) {
     e.preventDefault();
     const roleSelect = document.getElementById('login-role');
@@ -53,16 +75,27 @@ const STACKLY_AUTH = (function () {
     const email = emailInput ? emailInput.value.trim() : '';
     const password = passInput ? passInput.value : '';
 
+    let hasError = false;
+
+    // Clear previous errors
+    clearFieldError('login-email');
+    clearFieldError('login-password');
+
     if (!email || !password) {
-      if (window.STACKLY_MAIN) window.STACKLY_MAIN.showToast('Please enter both email and password.', 'error');
-      return;
+      if (!email) {
+        showFieldError('login-email', 'Please enter your email address.');
+      }
+      if (!password) {
+        showFieldError('login-password', 'Please enter your password.');
+      }
+      hasError = true;
     }
 
     // Email format validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      if (window.STACKLY_MAIN) window.STACKLY_MAIN.showToast('Please enter a valid email address format (e.g. name@domain.com).', 'error');
-      return;
+    if (email && !emailRegex.test(email)) {
+      showFieldError('login-email', 'Please enter a valid email address format (e.g. name@domain.com).');
+      hasError = true;
     }
 
     // Determine role: if dropdown is Admin OR email contains "admin" (case-insensitive)
@@ -210,6 +243,14 @@ const STACKLY_AUTH = (function () {
     }, 400);
   }
 
+  // Clear login field errors on input
+  function initLoginFieldListeners() {
+    const emailInput = document.getElementById('login-email');
+    const passInput = document.getElementById('login-password');
+    if (emailInput) emailInput.addEventListener('input', () => clearFieldError('login-email'));
+    if (passInput) passInput.addEventListener('input', () => clearFieldError('login-password'));
+  }
+
   // Bind forms if present on page
   document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('login-form');
@@ -229,6 +270,9 @@ const STACKLY_AUTH = (function () {
         if (roleSelect) roleSelect.value = lastRole;
         localStorage.removeItem('stackly_last_registered_role');
       }
+
+      // Clear errors on input
+      initLoginFieldListeners();
     }
 
     const registerForm = document.getElementById('register-form');

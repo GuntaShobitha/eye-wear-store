@@ -27,7 +27,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.getElementById('contact-form');
   const responseBox = document.getElementById('contact-response-box');
 
+  // Clear error on input
+  function clearFieldError(fieldId) {
+    const input = document.getElementById(fieldId);
+    if (input) {
+      input.classList.remove('is-invalid');
+      const errorEl = input.parentElement.querySelector('.field-error');
+      if (errorEl) errorEl.textContent = '';
+    }
+  }
+
   if (contactForm) {
+    // Clear errors on input
+    ['contact-name', 'contact-email', 'contact-subject', 'contact-message'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', () => clearFieldError(id));
+    });
+
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
@@ -36,20 +52,50 @@ document.addEventListener('DOMContentLoaded', () => {
       const subject = document.getElementById('contact-subject')?.value.trim();
       const message = document.getElementById('contact-message')?.value.trim();
 
-      if (!name || !email || !subject || !message) {
-        if (window.STACKLY_MAIN) {
-          window.STACKLY_MAIN.showToast('Please complete all contact form fields.', 'error');
-        }
-        return;
+      let hasError = false;
+
+      // Validate name
+      const nameInput = document.getElementById('contact-name');
+      const nameError = nameInput?.parentElement.querySelector('.field-error');
+      if (!name) {
+        if (nameInput) nameInput.classList.add('is-invalid');
+        if (nameError) nameError.textContent = 'Please enter your full name.';
+        hasError = true;
       }
 
+      // Validate email
+      const emailInput = document.getElementById('contact-email');
+      const emailError = emailInput?.parentElement.querySelector('.field-error');
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        if (window.STACKLY_MAIN) {
-          window.STACKLY_MAIN.showToast('Please enter a valid email address.', 'error');
-        }
-        return;
+      if (!email) {
+        if (emailInput) emailInput.classList.add('is-invalid');
+        if (emailError) emailError.textContent = 'Please enter your email address.';
+        hasError = true;
+      } else if (!emailRegex.test(email)) {
+        if (emailInput) emailInput.classList.add('is-invalid');
+        if (emailError) emailError.textContent = 'Please enter a valid email address.';
+        hasError = true;
       }
+
+      // Validate subject
+      const subjectInput = document.getElementById('contact-subject');
+      const subjectError = subjectInput?.parentElement.querySelector('.field-error');
+      if (!subject) {
+        if (subjectInput) subjectInput.classList.add('is-invalid');
+        if (subjectError) subjectError.textContent = 'Please enter a subject for your inquiry.';
+        hasError = true;
+      }
+
+      // Validate message
+      const messageInput = document.getElementById('contact-message');
+      const messageError = messageInput?.parentElement.querySelector('.field-error');
+      if (!message) {
+        if (messageInput) messageInput.classList.add('is-invalid');
+        if (messageError) messageError.textContent = 'Please enter your message.';
+        hasError = true;
+      }
+
+      if (hasError) return;
 
       // Success state (client-side demo)
       if (responseBox) {
@@ -65,10 +111,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (window.STACKLY_MAIN) {
-        window.STACKLY_MAIN.showToast(`Thank you, ${name}! Your inquiry has been submitted.`, 'success');
+        window.location.href='./404.html'
       }
 
       contactForm.reset();
+      // Clear all error states on reset
+      ['contact-name', 'contact-email', 'contact-subject', 'contact-message'].forEach(id => clearFieldError(id));
     });
   }
 });

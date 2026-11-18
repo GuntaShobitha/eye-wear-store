@@ -211,6 +211,16 @@
   box-shadow: 0 0 0 3px rgba(197, 160, 112, 0.15);
 }
 
+.auth-input.is-invalid {
+  border-color: var(--color-accent-red);
+  background: #FFF5F5;
+}
+
+.auth-input.is-invalid:focus {
+  border-color: var(--color-accent-red);
+  box-shadow: 0 0 0 3px rgba(168, 58, 58, 0.12);
+}
+
 .auth-select {
   width: 100%;
   padding: 0.9rem 1rem 0.9rem 2.8rem;
@@ -296,6 +306,15 @@
 
 .auth-switch-prompt a:hover {
   text-decoration: underline;
+}
+
+.field-error {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--color-accent-red);
+  margin-top: 0.35rem;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 /* Responsive Auth */

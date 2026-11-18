@@ -144,6 +144,10 @@
     height: 32px;
   }
 
+  .editorial-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
   .page-hero {
     padding: 7.5rem 0 3.5rem;
   }

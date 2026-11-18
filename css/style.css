@@ -350,7 +350,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 38px;
   width: auto;
   object-fit: contain;
-  transition: transform var(--transition-normal);
+  filter: brightness(0) invert(0);
 }
 
 .nav-logo:hover .nav-logo-img {
@@ -518,8 +518,6 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1005;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 6rem 2.5rem 3rem;
   transition: right var(--transition-slow);
 }
 
@@ -527,10 +525,44 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
 }
 
+/* Mobile Nav Header: Logo + Cancel Button */
+.mobile-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mobile-nav-header .nav-logo-img {
+  height: 34px;
+}
+
+.mobile-nav-close {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-muted);
+  transition: all var(--transition-fast);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-nav-close:hover {
+  background: var(--color-bg-card-alt);
+  color: var(--color-primary);
+}
+
 .mobile-nav-links {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  padding: 2rem 2rem 1rem;
 }
 
 .mobile-nav-link {
@@ -548,7 +580,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .mobile-nav-footer {
   border-top: 1px solid var(--color-border);
-  padding-top: 2rem;
+  padding: 1.5rem 2rem 2.5rem;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
@@ -2062,6 +2094,30 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-muted);
 }
 
+.newsletter-form-large input.is-invalid {
+  border-color: var(--color-accent-red);
+  background: #FFF5F5;
+}
+
+.newsletter-error {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--color-accent-red);
+  margin-top: 0.4rem;
+  font-weight: 500;
+}
+
+.newsletter-form-inline input.is-invalid {
+  border-color: var(--color-accent-red);
+}
+
+.newsletter-form-inline .newsletter-error {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--color-accent-red);
+  margin-top: 0.3rem;
+}
+
 /* ==========================================================================
    COLLECTIONS PAGE SPECIFIC STYLES
    ========================================================================== */
@@ -2326,6 +2382,25 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--color-accent-gold-dark);
   background: #FFFFFF;
   box-shadow: 0 0 0 3px rgba(197, 160, 112, 0.15);
+}
+
+.form-control.is-invalid {
+  border-color: var(--color-accent-red);
+  background: #FFF5F5;
+}
+
+.form-control.is-invalid:focus {
+  border-color: var(--color-accent-red);
+  box-shadow: 0 0 0 3px rgba(168, 58, 58, 0.12);
+}
+
+.field-error {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--color-accent-red);
+  margin-top: 0.35rem;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 textarea.form-control {

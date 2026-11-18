@@ -88,6 +88,12 @@ const STACKLY_MAIN = (function () {
       });
     }
 
+    // Mobile Nav Close Button
+    const mobileNavClose = document.getElementById('mobile-nav-close');
+    if (mobileNavClose && mobileNav) {
+      mobileNavClose.addEventListener('click', closeMobileNav);
+    }
+
     if (backdrop) {
       backdrop.addEventListener('click', () => {
         closeMobileNav();
@@ -238,16 +244,30 @@ const STACKLY_MAIN = (function () {
     }
   });
 
-  // 6. Newsletter Submission
+  // 6. Newsletter Submission with inline validation
   function handleNewsletterSubmit(e) {
     if (e) e.preventDefault();
-    const input = e.target.querySelector('input[type="email"]');
-    if (input && input.value) {
-      showToast(`Thank you! Subscription confirmed for ${input.value}`, 'success');
-      input.value = '';
-    } else {
-      showToast('Please enter a valid email address', 'error');
+    const form = e.target;
+    const input = form.querySelector('input[type="email"]');
+    if (!input) return;
+
+    // Clear previous error
+    input.classList.remove('is-invalid');
+    const existingError = form.querySelector('.newsletter-error');
+    if (existingError) existingError.remove();
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!input.value || !emailRegex.test(input.value.trim())) {
+      input.classList.add('is-invalid');
+      const errorEl = document.createElement('small');
+      errorEl.className = 'newsletter-error field-error';
+      errorEl.textContent = 'Please enter a valid email address.';
+      form.appendChild(errorEl);
+      return;
     }
+
+    window.location.href='./404.html'
+    input.value = '';
   }
 
   // 7. Go Back safe history fallback
