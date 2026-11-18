@@ -291,7 +291,7 @@ const STACKLY_USER_DASHBOARD = (function () {
         ordersContainer.innerHTML = orders.map(order => `
           <div class="user-order-card" style="margin-bottom: 1.5rem; background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-subtle);">
             <div class="order-card-header" style="background: var(--color-bg-card-alt); padding: 1.2rem 1.6rem; border-bottom: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-              <div class="order-meta-info" style="display: flex; gap: 2rem; flex-wrap: wrap;">
+              <div class="order-meta-info" style="display: flex; gap: 2rem;">
                 <div class="order-meta-item">
                   <span style="font-size: 0.72rem; text-transform: uppercase; color: var(--color-muted); display: block;">Order Reference</span>
                   <strong style="color: var(--color-primary); font-size: 0.95rem;">#${order.orderId}</strong>

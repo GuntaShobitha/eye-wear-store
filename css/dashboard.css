@@ -570,6 +570,7 @@
 
   .dashboard-content {
     padding: 1.5rem 1.2rem;
+    width: 100vw;
   }
 
   .metrics-grid {
@@ -589,6 +590,1232 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+  }
+}
+
+/* --- Inline Style Replacements - Dashboard Header Banners --- */
+
+.dashboard-header-banner {
+  background: linear-gradient(135deg, #18181B 0%, #09090B 100%);
+  color: #fff;
+  padding: 2.2rem 2.5rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-border-dark);
+}
+
+.dashboard-header-banner-user {
+  background: linear-gradient(135deg, #1C1A17 0%, #121110 100%);
+  color: #fff;
+  padding: 2.5rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-medium);
+}
+
+.banner-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.banner-title {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.banner-title-user {
+  color: #fff;
+  font-size: 2.2rem;
+  margin-bottom: 0.6rem;
+}
+
+.banner-description {
+  color: var(--color-muted-light);
+  max-width: 620px;
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+.banner-description-user {
+  color: var(--color-muted-light);
+  max-width: 580px;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.banner-actions {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.banner-membership-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--radius-sm);
+  text-align: right;
+}
+
+.banner-membership-label {
+  font-size: 0.72rem;
+  color: var(--color-accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  font-weight: 700;
+}
+
+.banner-membership-title {
+  color: #fff;
+  font-size: 1rem;
+}
+
+.banner-membership-sub {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--color-muted-light);
+  margin-top: 0.2rem;
+}
+
+/* --- Inline Style Replacements - Sidebar Elements --- */
+
+.sidebar-close-btn {
+  display: none;
+  margin-left: auto;
+}
+
+.sidebar-user-email {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  word-break: break-all;
+  display: block;
+  margin-bottom: 0.2rem;
+  text-transform: lowercase;
+  letter-spacing: normal;
+}
+
+.sidebar-user-role {
+  color: var(--color-accent-gold-dark);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.sidebar-avatar-primary {
+  border-color: var(--color-primary);
+}
+
+.view-storefront-link {
+  color: var(--color-primary);
+  margin-bottom: 0.4rem;
+}
+
+/* --- Inline Style Replacements - Topbar Elements --- */
+
+.demo-badge {
+  font-size: 0.8rem;
+  background: var(--color-bg-card-alt);
+  border: 1px solid var(--color-border);
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  color: var(--color-accent-gold-dark);
+}
+
+.topbar-profile-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.topbar-profile-info {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  line-height: 1.25;
+}
+
+.topbar-display-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.topbar-display-email {
+  font-size: 0.75rem;
+  color: var(--color-accent-gold-dark);
+  font-weight: 600;
+}
+
+.user-display-name-inline {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.user-display-email-inline {
+  font-size: 0.75rem;
+  color: var(--color-accent-gold-dark);
+  font-weight: 600;
+}
+
+/* --- Inline Style Replacements - Content Layouts --- */
+
+.content-grid-2col {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.content-grid-2col-user {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.content-grid-2col-equal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.content-grid-2col-equal-user {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.content-grid-2col-wide {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.content-grid-3col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+/* --- Inline Style Replacements - Metric Cards Overrides --- */
+
+.metrics-grid-4col {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.metrics-grid-3col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.metric-value-small {
+  font-size: 1.6rem;
+}
+
+/* --- Inline Style Replacements - Dashboard Cards --- */
+
+.dashboard-card-no-margin {
+  margin-bottom: 0;
+}
+
+.dashboard-card-header-flex {
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.dashboard-card-header-min-width {
+  min-width: 240px;
+}
+
+/* --- Inline Style Replacements - Form Elements --- */
+
+.form-control-inline {
+  padding-left: 1rem;
+  width: auto;
+}
+
+.form-group-inline-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group-inline-grid-wide {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* --- Inline Style Replacements - Search & Filter Bars --- */
+
+.search-filter-bar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.search-filter-bar-user {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.search-input-wrapper {
+  flex: 1;
+  min-width: 240px;
+}
+
+/* --- Inline Style Replacements - Buttons & Actions --- */
+
+.btn-white-outline {
+  color: #fff;
+  border-color: rgba(255,255,255,0.3);
+}
+
+.btn-full-width {
+  width: 100%;
+}
+
+.btn-flex-1 {
+  flex: 1;
+}
+
+/* --- Inline Style Replacements - Data Tables --- */
+
+.table-header-flex {
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.table-search-wrapper {
+  min-width: 240px;
+}
+
+.table-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+/* --- Inline Style Replacements - Charts & Visualizations --- */
+
+.bar-chart-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 200px;
+  padding: 1.5rem 0.5rem 0;
+  border-bottom: 1px solid var(--color-border);
+  gap: 1rem;
+}
+
+.bar-chart-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bar-chart-label {
+  font-size: 0.72rem;
+  color: var(--color-muted);
+}
+
+.bar-chart-value {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.bar-chart-value-strong {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.bar-chart-colors{
+  /* Base bar styles - colors applied via modifier classes */
+}
+
+.bar-chart-value-gold{
+  color: var(--color-accent-gold-dark);
+}
+
+.dashboard-eyebrow-gold{
+  color: var(--color-accent-gold);
+}
+
+.dashboard-eyebrow-gold-dark{
+  color: var(--color-accent-gold-dark);
+}
+
+.dashboard-email-gold{
+  color: var(--color-accent-gold);
+}
+
+.dashboard-email-white{
+  color: #fff;
+}
+
+.metric-value-warning{
+  color: #D97706;
+}
+
+.dashboard-card-title{
+  font-size: 1.15rem;
+}
+
+.dashboard-card-margin-top{
+  margin-top: 2rem;
+}
+
+.metrics-margin{
+  margin-bottom: 2rem;
+}
+
+.rx-table-container{
+  margin-bottom: 1rem;
+}
+
+.dashboard-origin-carrier{
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--color-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.bar-gold {
+  background: var(--color-accent-gold-dark);
+}
+
+.bar-primary {
+  background: var(--color-primary);
+}
+
+.bar-bg-alt {
+  background: var(--color-bg-card-alt);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+}
+
+/* --- Inline Style Replacements - Progress Bars --- */
+
+.progress-bar-container {
+  width: 100%;
+  height: 8px;
+  background: var(--color-bg-card-alt);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-container-sm {
+  width: 100%;
+  height: 6px;
+  background: var(--color-bg-card-alt);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+}
+
+.progress-bar-gold {
+  background: var(--color-accent-gold-dark);
+}
+
+.progress-bar-primary {
+  background: var(--color-primary);
+}
+
+.progress-bar-green {
+  background: var(--color-accent-green);
+}
+
+.progress-bar-muted {
+  background: var(--color-muted);
+}
+
+.progress-bar-gold-light {
+  background: var(--color-accent-gold);
+}
+
+.progress-bar-secondary {
+  background: var(--color-secondary);
+}
+
+/* --- Inline Style Replacements - Production Capacity Cards --- */
+
+.production-capacity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.capacity-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  margin-bottom: 0.35rem;
+}
+
+.capacity-value-gold {
+  color: var(--color-accent-gold-dark);
+  font-weight: 700;
+}
+
+.capacity-value-primary {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.capacity-value-green {
+  color: var(--color-accent-green);
+  font-weight: 700;
+}
+
+/* --- Inline Style Replacements - Revenue Charts --- */
+
+.revenue-chart-container {
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.8rem;
+}
+
+.revenue-chart-title {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.revenue-chart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.revenue-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  margin-bottom: 0.3rem;
+}
+
+.revenue-item-title {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-bottom: 0.5rem;
+}
+
+/* --- Inline Style Replacements - Material & Regional Stats --- */
+
+.stats-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid var(--color-border);
+  padding-top: 2rem;
+}
+
+.stats-section-title {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  font-size: 0.85rem;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+/* --- Inline Style Replacements - Activity Feed --- */
+
+.activity-feed-container {
+  /* Uses existing .activity-feed-list */
+}
+
+/* --- Inline Style Replacements - Prescription Table --- */
+
+.prescription-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.prescription-info-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.prescription-info-label {
+  color: var(--color-primary);
+}
+
+.prescription-info-value {
+  color: var(--color-accent-gold-dark);
+  font-weight: 600;
+}
+
+/* --- Inline Style Replacements - Care Roadmap --- */
+
+.care-roadmap-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  font-size: 0.9rem;
+}
+
+.care-item {
+  padding: 1rem;
+  background: var(--color-bg-card-alt);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid;
+}
+
+.care-item-gold {
+  border-left-color: var(--color-accent-gold);
+}
+
+.care-item-green {
+  border-left-color: var(--color-accent-green);
+}
+
+.care-item-primary {
+  border-left-color: var(--color-primary);
+}
+
+.care-item-title {
+  color: var(--color-primary);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.care-item-description {
+  color: var(--color-muted);
+  font-size: 0.82rem;
+  margin-bottom: 0.5rem;
+}
+
+.care-item-badge {
+  font-size: 0.75rem;
+  color: var(--color-accent-green);
+  font-weight: 700;
+}
+
+.care-item-muted {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+/* --- Inline Style Replacements - Address & Payment Cards --- */
+
+.address-card {
+  padding: 1.2rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+}
+
+.address-card-primary {
+  padding: 1.2rem;
+  border: 1px solid var(--color-accent-gold);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-card-alt);
+}
+
+.address-card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.address-card-title {
+  color: var(--color-primary);
+}
+
+.address-card-content {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin: 0 0 0.5rem;
+}
+
+.address-card-phone {
+  font-size: 0.78rem;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* --- Inline Style Replacements - Payment Cards --- */
+
+.payment-card {
+  padding: 1.2rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.payment-card-primary {
+  padding: 1.2rem;
+  border: 1px solid var(--color-accent-gold);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-card-alt);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.payment-card-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.payment-card-brand {
+  width: 48px;
+  height: 32px;
+  background: #1C1917;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-gold);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.payment-card-brand-visa {
+  background: #1E3A8A;
+  color: #fff;
+}
+
+.payment-card-details {
+  strong {
+    display: block;
+    font-size: 0.9rem;
+}
+
+  span {
+    font-size: 0.78rem;
+    color: var(--color-muted);
+}
+
+}
+
+/* --- Inline Style Replacements - Warranty Banner --- */
+
+.warranty-banner {
+  margin-top: 2rem;
+  background: var(--color-bg-card-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.warranty-title {
+  color: var(--color-primary);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.warranty-text {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+/* --- Inline Style Replacements - Settings Section --- */
+
+.settings-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.settings-group {
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.5rem;
+}
+
+.settings-heading {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.settings-label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+  cursor: pointer;
+}
+
+.settings-text {
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  margin-bottom: 1rem;
+}
+
+.settings-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.logout-btn-danger {
+  color: var(--color-accent-red);
+  border-color: var(--color-accent-red);
+}
+
+/* --- Inline Style Replacements - Support Contact Cards --- */
+
+.support-contact-card {
+  /* Uses existing .metric-card */
+}
+
+.support-contact-eyebrow {
+  color: var(--color-accent-gold-dark);
+}
+
+.support-contact-title {
+  margin: 0.4rem 0 0.8rem;
+  font-size: 1.1rem;
+}
+
+.support-contact-description {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  margin-bottom: 1rem;
+}
+
+.support-contact-value {
+  font-size: 0.95rem;
+  color: var(--color-primary);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.support-contact-email {
+  font-size: 0.78rem;
+  color: var(--color-muted);
+}
+
+/* --- Inline Style Replacements - Support Ticket Form --- */
+
+.ticket-form {
+  /* Uses existing form styles */
+}
+
+.ticket-form-actions {
+  width: 100%;
+}
+
+/* --- Inline Style Replacements - Rx Table Cell --- */
+
+.rx-table-cell-centered {
+  vertical-align: middle;
+  font-weight: 700;
+}
+
+.rx-table-cell-rowspan {
+  vertical-align: middle;
+  font-weight: 700;
+}
+
+/* --- Inline Style Replacements - Status Badges --- */
+
+.badge-review {
+  background: rgba(217, 119, 6, 0.12);
+  color: #D97706;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.badge-active {
+  background: rgba(63, 117, 83, 0.1);
+  color: var(--color-accent-green);
+  font-size: 0.72rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+}
+
+.badge-gold-dark {
+  background: var(--color-accent-gold-dark);
+  color: #fff;
+  font-size: 0.65rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-pill);
+}
+
+.badge-primary {
+  background: var(--color-accent-gold-dark);
+  color: #fff;
+  font-size: 0.65rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-pill);
+}
+
+.badge-green {
+  background: rgba(63, 117, 83, 0.1);
+  color: var(--color-accent-green);
+  font-size: 0.72rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+}
+
+/* --- Inline Style Replacements - Dashboard Card Section Info --- */
+
+.card-section-info {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.card-section-info-small {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+.card-section-info-green {
+  font-size: 0.78rem;
+  color: var(--color-accent-green);
+  font-weight: 700;
+}
+
+.card-section-info-muted {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.card-section-value {
+  font-size: 0.85rem;
+  color: var(--color-accent-gold-dark);
+  font-weight: 600;
+}
+
+.card-section-value-primary {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.card-section-value-muted {
+  color: var(--color-muted);
+}
+
+/* --- Inline Style Replacements - Additional Table Elements --- */
+
+.table-header-margin {
+  margin-bottom: 1rem;
+}
+
+/* --- Inline Style Replacements - Quick Actions (User Dashboard) --- */
+
+/* .quick-actions-grid already exists in dashboard.css */
+
+/* --- Responsive Overrides for New Classes --- */
+
+@media (max-width: 1024px) {
+  .content-grid-2col,
+  .content-grid-2col-user,
+  .content-grid-2col-equal,
+  .content-grid-2col-equal-user,
+  .content-grid-2col-wide,
+  .content-grid-3col,
+  .stats-grid-2col {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics-grid-4col,
+  .metrics-grid-3col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bar-chart-container {
+    height: 150px;
+    padding: 1rem 0.25rem 0;
+  }
+
+  .form-group-inline-grid,
+  .form-group-inline-grid-wide {
+    grid-template-columns: 1fr;
+  }
+
+  .rx-table-cell-rowspan {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-header-banner,
+  .dashboard-header-banner-user {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .topbar-title h1  {
+    display: none;
+  }
+
+  .topbar-profile-info {
+    display: none;
+  }
+
+  .dashboard-card-no-margin, .dashboard-card-no-margin  {
+    width: 90vw;
+  }
+
+  .screen-size-fixing{
+    width: 80vw;
+    font-size: 10px;
+  }
+
+  .form-group > select {
+    width: 50vw;
+  }
+
+  .dashboard-card-header{
+    flex-direction: column;
+  }
+
+
+  .rx-table-container {
+    overflow-x: hidden;
+  }
+
+  .care-item-gold > button {
+    font-size: 7px;
+  }
+
+  .demo-badge  {
+    display: none;
+  }
+
+  .banner-inner {
+    flex-direction: column;
+  }
+
+  .banner-title,
+  .banner-title-user {
+    font-size: 1.5rem;
+  }
+
+  .banner-description,
+  .banner-description-user {
+    max-width: 100%;
+  }
+
+  .banner-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .banner-actions .btn {
+    width: 100%;
+  }
+
+  .banner-membership-card {
+    text-align: left;
+  }
+
+  .topbar-profile-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .topbar-profile-info {
+    text-align: left;
+  }
+
+  .metrics-grid-4col,
+  .metrics-grid-3col {
+    grid-template-columns: 1fr;
+  }
+
+  .search-filter-bar,
+  .search-filter-bar-user {
+    flex-direction: column;
+  }
+
+  .search-filter-bar .search-input-wrapper,
+  .search-filter-bar-user .search-input-wrapper {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .form-group-inline-grid,
+  .form-group-inline-grid-wide {
+    grid-template-columns: 1fr;
+  }
+
+  .content-grid-2col,
+  .content-grid-2col-user,
+  .content-grid-2col-equal,
+  .content-grid-2col-equal-user,
+  .content-grid-2col-wide,
+  .content-grid-3col,
+  .stats-grid-2col {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .dashboard-card-no-margin {
+    margin-bottom: 0;
+  }
+
+  .warranty-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .settings-actions {
+    flex-direction: column;
+  }
+
+  .settings-actions .btn {
+    width: 100%;
+  }
+
+  .capacity-item {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .payment-card,
+  .payment-card-primary {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .payment-card-info {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .address-card-header {
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: left;
+  }
+
+  .bar-chart-container {
+    height: 120px;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .bar-chart-item {
+    min-width: 40px;
+  }
+
+  .rx-table {
+    font-size: 0.8rem;
+  }
+
+  .rx-table th,
+  .rx-table td {
+    padding: 0.5rem 0.5rem;
+  }
+
+  .prescription-info-list {
+    gap: 0.35rem;
+  }
+
+  .care-roadmap-list {
+    gap: 0.8rem;
+  }
+
+  .care-item {
+    padding: 0.8rem;
+  }
+
+  .address-card,
+  .address-card-primary {
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-content {
+    padding: 1rem;
+    width: 100vw;
+  }
+
+  .dashboard-header-banner,
+  .dashboard-header-banner-user {
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .banner-title,
+  .banner-title-user {
+    font-size: 1.25rem;
+  }
+
+  .metrics-grid-4col,
+  .metrics-grid-3col {
+    gap: 1rem;
+  }
+
+  .metric-card {
+    padding: 1.2rem;
+  }
+
+  .metric-value {
+    font-size: 1.8rem;
+  }
+
+  .bar-chart-container {
+    height: 100px;
+    padding: 0.5rem 0.25rem 0;
+  }
+
+  .bar-chart-label {
+    font-size: 0.65rem;
+  }
+
+  .bar-chart-value,
+  .bar-chart-value-strong {
+    font-size: 0.65rem;
   }
 }
 
