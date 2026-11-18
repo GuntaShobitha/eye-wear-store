@@ -10,13 +10,29 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
   <link rel="stylesheet" href="css/animations.css" />
+  <script>document.documentElement.classList.add('js', 'page-loading');</script>
 </head>
-<body>
+<body id="top">
 
   <!-- Page Loader -->
-  <div id="page-loader" class="page-loader">
-    <div class="loader-spinner"></div>
-    <span class="loader-text">STACKLY · ATELIER</span>
+  <div id="page-loader" class="page-loader" role="status" aria-live="polite" aria-label="Loading STACKLY Atelier">
+    <div class="page-loader-in">
+      <div class="loader-eyewear-emblem" aria-hidden="true">
+        <svg class="loader-glasses-svg" viewBox="0 0 100 40" fill="none" stroke="currentColor">
+          <circle cx="28" cy="20" r="13" stroke="currentColor" stroke-width="2" />
+          <circle cx="72" cy="20" r="13" stroke="currentColor" stroke-width="2" />
+          <path d="M41 18 Q50 14 59 18" stroke="currentColor" stroke-width="2" fill="none" />
+          <path d="M15 18 L5 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          <path d="M85 18 L95 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          <circle class="lens-glint lens-glint-1" cx="24" cy="16" r="2.5" fill="currentColor" />
+          <circle class="lens-glint lens-glint-2" cx="68" cy="16" r="2.5" fill="currentColor" />
+        </svg>
+        <span class="loader-reticle-ring"></span>
+      </div>
+      <img src="./images/logo-dark.webp" alt="STACKLY" class="loader-logo-img" />
+      <span class="loader-text">STACKLY · ATELIER</span>
+      <span class="loader-progress-bar" aria-hidden="true"><i></i></span>
+    </div>
   </div>
 
   <!-- Navigation Bar -->
@@ -476,6 +492,7 @@
           <a href="404.html">Privacy Protocol</a>
           <a href="404.html">Terms of Atelier</a>
           <a href="404.html">Optical Warranty</a>
+          <a href="#top" class="back-to-top" aria-label="Back to top">Back to top <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg></span></a>
         </div>
       </div>
     </div>
@@ -484,6 +501,12 @@
   <script src="js/products.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/wishlist.js"></script>
+
+  <!-- Animation Libraries (GSAP 3, ScrollTrigger, Lenis Smooth Scroll) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <script src="js/animations.js"></script>
   <script src="js/main.js"></script>
 </body>
